@@ -7,7 +7,7 @@ import index.*;
 
 public class GUI {
 	private JFrame frame;
-	private ImageIcon test;
+	private int counter;
 	
 	public GUI() {
 		//Set frames
@@ -23,10 +23,12 @@ public class GUI {
 		//Add labels
 		PanelIndex.test.add(PanelIndex.tests);
 		PanelIndex.st.add(PanelIndex.fr);
-		PanelIndex.a.add(PanelIndex.pot);
+		PanelIndex.a.add(PanelIndex.levelA);
+		//PanelIndex.a.add(PanelIndex.pot);
 		
-		//Add panels
-		
+		//Add listeners
+		PanelIndex.levelA.addActionListener(new Listener());
+		PanelIndex.levelB.addActionListener(new Listener());
 		//Set visible
 		frame.setVisible(true);
 		
@@ -37,7 +39,21 @@ public class GUI {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			Object x = e.getSource();
-			
+			String result = "";
+			if (x == PanelIndex.levelA) {
+				System.out.println("Hello");
+				PanelIndex.a.remove(PanelIndex.levelA);
+				PanelIndex.a.revalidate();
+				PanelIndex.a.repaint();
+				PanelIndex.a.add(PanelIndex.levelB);
+			}
+			if (x == PanelIndex.levelB) {
+				System.out.println("Hi");
+				PanelIndex.a.remove(PanelIndex.levelB);
+				PanelIndex.a.revalidate();
+				PanelIndex.a.repaint();
+				PanelIndex.a.add(PanelIndex.levelA);
+			}
 			
 		}
 		

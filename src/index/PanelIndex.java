@@ -24,7 +24,9 @@ public class PanelIndex {
 	public static JPanel progressA, progressB, progressC;
 	public static JPanel question;
 	public static JPanel responses;
-	
+	//Buttons
+	public static JButton levelA = new JButton("le button");
+	public static JButton levelB = new JButton("other button");
 	ArrayList<JPanel> p = new ArrayList<JPanel>();
 	ArrayList<JPanel> q= new ArrayList<JPanel>();
 	ArrayList<JPanel> r = new ArrayList<JPanel>();
