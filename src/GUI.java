@@ -15,12 +15,15 @@ public class GUI {
 		frame.setSize(800, 600);
 		frame.setLayout(new GridLayout(1, 2));
 		//Add panels
-		frame.add(PanelIndex.test);
+		//frame.add(PanelIndex.test);
+		frame.add(PanelIndex.progress);
 		frame.add(PanelIndex.two);
 		PanelIndex.two.setLayout(new GridLayout(2, 1));
-		PanelIndex.two.add(PanelIndex.st);
-		PanelIndex.two.add(PanelIndex.a);
-		//Add labels
+		PanelIndex.two.add(PanelIndex.question);
+		PanelIndex.two.add(PanelIndex.baseInfo);
+		//PanelIndex.two.add(PanelIndex.st);
+		//PanelIndex.two.add(PanelIndex.a);
+		//Add labels and buttons and such
 		PanelIndex.test.add(PanelIndex.tests);
 		PanelIndex.st.add(PanelIndex.fr);
 		PanelIndex.a.add(PanelIndex.levelA);
