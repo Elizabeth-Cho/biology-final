@@ -3,7 +3,7 @@ import index.PanelIndex;
 public class Processing {
 	private Signal sig;
 	private String name;
-	private String sex;
+	private String gender;
 	
 	public Processing(Signal s){
 		sig = s;
@@ -15,17 +15,19 @@ public class Processing {
 		}
 	}
 	
-	public void getSex(Object x){
+	public void getGender(Object x){
 		if(x == PanelIndex.m){
-			sex = "Male";
+			gender = "Male";
 		}
 		else if(x == PanelIndex.f){
-			sex = "Female";
+			gender = "Female";
 		}
 	}
 	
 	public void getPreHist(Object x){
-		
+		if(x == PanelIndex.yes){
+			
+		}
 	}
 	
 	public void getPrevVisit(Object x){
@@ -51,6 +53,12 @@ public class Processing {
 		if(x == PanelIndex.levelA) {
 			
 		}
+	}
+	
+	public void transferInfo(){
+		UserInfo.name = name;
+		UserInfo.gender = gender;
+		
 	}
 	}
  
