@@ -11,23 +11,16 @@ public class Processing {
 	
 	public void getName(Object x){
 		if(x == PanelIndex.next) {
-			name = PanelIndex.name.getText();
+			name = PanelIndex.nameI.getText();
 		}
 	}
 	
 	public void getGender(Object x){
-		if(x == PanelIndex.m){
-			gender = "Male";
-		}
-		else if(x == PanelIndex.f){
-			gender = "Female";
-		}
+
 	}
 	
 	public void getPreHist(Object x){
-		if(x == PanelIndex.yes){
-			
-		}
+	
 	}
 	
 	public void getPrevVisit(Object x){

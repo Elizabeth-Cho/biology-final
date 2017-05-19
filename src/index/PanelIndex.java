@@ -8,8 +8,9 @@ import images.*;
 
 public class PanelIndex {
 	//Image
-	
+	public static ImageIcon back = createImageIcon("blueLights");
 	//Label
+	public static JLabel backL = new JLabel(back);
 	public static JLabel blankA = new JLabel();
 	public static JLabel blankB = new JLabel();
 	public static JLabel blankC = new JLabel();
@@ -32,13 +33,14 @@ public class PanelIndex {
 	public static JTextField hist = new JTextField();
 	public static JTextField currMed = new JTextField();
 	public static JTextField age = new JTextField(3);
-	public static JRadioButton yes = new JRadioButton("Yes");
-	public static JRadioButton no = new JRadioButton("No");
-	public static JRadioButton m = new JRadioButton("Male");
-	public static JRadioButton f = new JRadioButton("Female");
+	public static String[] yn = {"", "Yes", "No"};
 	public static String[] gender = {"", "Male", "Female"};
+	public static JComboBox ynB = new JComboBox(yn);
 	public static JComboBox g = new JComboBox(gender);
 	//Panel
+	public static JPanel spaceA = new JPanel();
+	public static JPanel spaceB = new JPanel();
+	public static JPanel main = new JPanel();
 	public static JPanel two = new JPanel();
 	public static JPanel baseInfo = new JPanel();
 	public static JPanel recentInfo = new JPanel();
@@ -51,6 +53,8 @@ public class PanelIndex {
 	public static JPanel question = new JPanel();
 	public static JPanel multResponses = new JPanel();
 	public static JPanel checkResponses = new JPanel();
+	public static JPanel radioTextA = new JPanel();
+	public static JPanel radioTextB = new JPanel();
 	//Buttons
 	public static JButton pathA = new JButton();	//Pain
 	public static JButton pathB = new JButton();	//Illness

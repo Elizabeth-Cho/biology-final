@@ -13,7 +13,7 @@ public class GUI {
 		//Set frames
 		frame = new JFrame("Final project"); //Rename
 		frame.setSize(800, 600);
-		frame.setLayout(new GridLayout(1, 2));
+		frame.setLayout(new GridLayout(1, 2, 10, 5));
 		//Add panels
 		//frame.add(PanelIndex.test);
 		frame.add(PanelIndex.progress);
@@ -21,8 +21,10 @@ public class GUI {
 		PanelIndex.two.setLayout(new GridLayout(2, 1));
 		PanelIndex.two.add(PanelIndex.baseInfo);
 		PanelIndex.two.add(PanelIndex.recentInfo);
-		PanelIndex.baseInfo.setLayout(new GridLayout(4, 2));
-		PanelIndex.recentInfo.setLayout(new GridLayout(4, 1));
+		PanelIndex.baseInfo.setLayout(new GridLayout(4, 2, 10, 5));
+		PanelIndex.recentInfo.setLayout(new GridLayout(4, 1, 10, 5));
+		PanelIndex.radioTextA.setLayout(new GridLayout(2, 1));
+		PanelIndex.radioTextB.setLayout(new GridLayout(2, 1));
 		//BaseInfo adding stuff
 		PanelIndex.baseInfo.add(PanelIndex.nameL);
 		PanelIndex.baseInfo.add(PanelIndex.nameI);
@@ -31,7 +33,7 @@ public class GUI {
 		PanelIndex.baseInfo.add(PanelIndex.ageL);
 		PanelIndex.baseInfo.add(PanelIndex.age);
 		PanelIndex.baseInfo.add(PanelIndex.pregnancyL);
-		
+		PanelIndex.baseInfo.add(PanelIndex.ynB);
 		//RecentInfo adding stuff
 		PanelIndex.recentInfo.add(PanelIndex.preexisting);
 		PanelIndex.recentInfo.add(PanelIndex.preex);
