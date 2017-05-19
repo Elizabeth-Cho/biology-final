@@ -24,18 +24,35 @@ public class PanelIndex {
 	public static JLabel med = 
 			new JLabel("<html><p>Are you currently taking any medications?</p></html>");
 	public static JLabel preexisting = 
-			new JLabel("<html><p>Do you have any preexisting conditions</p></html>");
+			new JLabel("<html><p>Do you have any preexisting conditions?</p></html>");
 	public static JLabel history =
-			new JLabel("<html>Do you have any family history of conditions</p></html>");
+			new JLabel("<html><p>Do you have any family history of conditions?</p></html>");
+	public static JLabel blankField = 
+			new JLabel("<html><p>Please do not leave any fields empty</p></html>");
+	public static JLabel NAN = 
+			new JLabel("<html><p>Please input a valid number</p></html>");
 	//Others
+	public static ButtonGroup ynA = new ButtonGroup();
+	public static ButtonGroup ynB = new ButtonGroup();
+	public static ButtonGroup ynP = new ButtonGroup();
+	public static ButtonGroup genderB = new ButtonGroup();
 	public static JTextField nameI = new JTextField();
 	public static JTextField preex = new JTextField();
 	public static JTextField hist = new JTextField();
 	public static JTextField currMed = new JTextField();
 	public static JTextField age = new JTextField(3);
+	public static JRadioButton yesA = new JRadioButton("Yes");
+	public static JRadioButton noA = new JRadioButton("No");
+	public static JRadioButton yesB = new JRadioButton("Yes");
+	public static JRadioButton noB = new JRadioButton("No");
+	public static JRadioButton yesP = new JRadioButton("Yes");
+	public static JRadioButton noP = new JRadioButton("No");
+	public static JRadioButton idk = new JRadioButton("Not sure");
+	public static JRadioButton male = new JRadioButton("Male");
+	public static JRadioButton female = new JRadioButton("Female");
 	public static String[] yn = {"", "Yes", "No"};
 	public static String[] gender = {"", "Male", "Female"};
-	public static JComboBox ynB = new JComboBox(yn);
+	public static JComboBox ynC = new JComboBox(yn);
 	public static JComboBox g = new JComboBox(gender);
 	//Panel
 	public static JPanel spaceA = new JPanel();
@@ -55,6 +72,8 @@ public class PanelIndex {
 	public static JPanel checkResponses = new JPanel();
 	public static JPanel radioTextA = new JPanel();
 	public static JPanel radioTextB = new JPanel();
+	public static JPanel radioYN = new JPanel();
+	public static JPanel radioG = new JPanel();
 	//Buttons
 	public static JButton pathA = new JButton();	//Pain
 	public static JButton pathB = new JButton();	//Illness
