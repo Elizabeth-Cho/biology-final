@@ -15,8 +15,7 @@ public class Processing {
 	}
 	
 	public static boolean checkBase(Object x){
-		if(PanelIndex.nameI.getText() == ""|| PanelIndex.age.getText() == "" ||
-				PanelIndex.g.getSelectedItem().toString() == ""){
+		if(PanelIndex.nameI.getText() == ""|| PanelIndex.age.getText() == ""){
 			System.out.println("checkBase");
 			//GUI.counter--;
 			//System.out.println(GUI.counter);
@@ -32,7 +31,6 @@ public class Processing {
 	
 	public static void gatherBase(Object x){
 		name = PanelIndex.nameI.getText();
-		gender = PanelIndex.g.getSelectedItem().toString();
 		age = Integer.parseInt(PanelIndex.age.getText());
 	
 		

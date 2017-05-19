@@ -26,16 +26,17 @@ public class GUI {
 		PanelIndex.recentInfo.setLayout(new GridLayout(5, 2, 10, 5));
 		PanelIndex.radioTextA.setLayout(new GridLayout(3, 1));
 		PanelIndex.radioTextB.setLayout(new GridLayout(3, 1));
-		
+		PanelIndex.radioYN.setLayout(new GridLayout(3, 1));
+		PanelIndex.radioG.setLayout(new GridLayout(2, 1));
 		//BaseInfo adding stuff
 		PanelIndex.baseInfo.add(PanelIndex.nameL);
 		PanelIndex.baseInfo.add(PanelIndex.nameI);
 		PanelIndex.baseInfo.add(PanelIndex.genderL);
-		PanelIndex.baseInfo.add(PanelIndex.g);
+		PanelIndex.baseInfo.add(PanelIndex.radioG);
 		PanelIndex.baseInfo.add(PanelIndex.ageL);
 		PanelIndex.baseInfo.add(PanelIndex.age);
 		PanelIndex.baseInfo.add(PanelIndex.pregnancyL);
-		PanelIndex.baseInfo.add(PanelIndex.ynC);
+		PanelIndex.baseInfo.add(PanelIndex.radioYN);
 		//RecentInfo adding stuff
 		PanelIndex.recentInfo.add(PanelIndex.preexisting);
 		PanelIndex.recentInfo.add(PanelIndex.radioTextA);
@@ -55,6 +56,16 @@ public class GUI {
 		PanelIndex.ynB.add(PanelIndex.yesB);
 		PanelIndex.ynB.add(PanelIndex.noB);
 		PanelIndex.radioTextB.add(PanelIndex.hist);
+		PanelIndex.radioYN.add(PanelIndex.yesP);
+		PanelIndex.radioYN.add(PanelIndex.noP);
+		PanelIndex.radioYN.add(PanelIndex.idk);
+		PanelIndex.ynP.add(PanelIndex.yesP);
+		PanelIndex.ynP.add(PanelIndex.noP);
+		PanelIndex.ynP.add(PanelIndex.idk);
+		PanelIndex.radioG.add(PanelIndex.male);
+		PanelIndex.radioG.add(PanelIndex.female);
+		PanelIndex.genderB.add(PanelIndex.male);
+		PanelIndex.genderB.add(PanelIndex.female);
 		//PanelIndex.two.add(PanelIndex.st);
 		//PanelIndex.two.add(PanelIndex.a);
 		//Add labels and buttons and such

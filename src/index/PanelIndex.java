@@ -50,10 +50,6 @@ public class PanelIndex {
 	public static JRadioButton idk = new JRadioButton("Not sure");
 	public static JRadioButton male = new JRadioButton("Male");
 	public static JRadioButton female = new JRadioButton("Female");
-	public static String[] yn = {"", "Yes", "No"};
-	public static String[] gender = {"", "Male", "Female"};
-	public static JComboBox ynC = new JComboBox(yn);
-	public static JComboBox g = new JComboBox(gender);
 	//Panel
 	public static JPanel spaceA = new JPanel();
 	public static JPanel spaceB = new JPanel();
