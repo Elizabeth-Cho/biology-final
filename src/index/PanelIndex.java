@@ -36,6 +36,7 @@ public class PanelIndex {
 	public static ButtonGroup ynB = new ButtonGroup();
 	public static ButtonGroup ynP = new ButtonGroup();
 	public static ButtonGroup genderB = new ButtonGroup();
+	public static ButtonGroup oneToTen = new ButtonGroup();	//Baymax
 	public static JTextField nameI = new JTextField();
 	public static JTextField preex = new JTextField();
 	public static JTextField hist = new JTextField();
@@ -50,6 +51,8 @@ public class PanelIndex {
 	public static JRadioButton idk = new JRadioButton("Not sure");
 	public static JRadioButton male = new JRadioButton("Male");
 	public static JRadioButton female = new JRadioButton("Female");
+	public static JRadioButton yesC = new JRadioButton("Yes");
+	public static JRadioButton noC = new JRadioButton("No");
 	//Panel
 	public static JPanel spaceA = new JPanel();
 	public static JPanel spaceB = new JPanel();
@@ -68,14 +71,21 @@ public class PanelIndex {
 	public static JPanel checkResponses = new JPanel();
 	public static JPanel radioTextA = new JPanel();
 	public static JPanel radioTextB = new JPanel();
+	public static JPanel radioTextC = new JPanel();
 	public static JPanel radioYN = new JPanel();
 	public static JPanel radioG = new JPanel();
+	public static JPanel duration = new JPanel();
 	//Buttons
-	public static JButton pathA = new JButton();	//Pain
-	public static JButton pathB = new JButton();	//Illness
-	public static JButton pathC = new JButton();	//Accidents
-	public static JButton pathD = new JButton();	//Other
+	public static JButton pathA = new JButton("Pain");		//Pain
+	public static JButton pathB = new JButton("Illness");	//Illness
+	public static JButton pathC = new JButton("Accident");	//Accidents
+	public static JButton pathD = new JButton("Other");		//Other
 	public static JButton next = new JButton("Next");	//For base info
+	public static JButton lessWeek = new JButton("Less than a week");
+	public static JButton oneTwoWeek = new JButton("One to two weeks");
+	public static JButton twoThreeWeek = new JButton("Two to three weeks");
+	public static JButton threeFourWeek = new JButton("Three to four weeks");
+	public static JButton moreThanMonth = new JButton("More than a month");
 	//Checkboxes, generic symptoms for all related questions
 	public static JCheckBox symptomA = new JCheckBox();
 	public static JCheckBox symptomB = new JCheckBox();
@@ -99,6 +109,9 @@ public class PanelIndex {
 	public static JPanel test = new JPanel();
 	public static JButton levelA = new JButton("le button");
 	public static JButton levelB = new JButton("other button");
+	//Temporary labels
+	public static JLabel catTemp = 
+			new JLabel("<html><p>What is your reason for your visit?</p></html>");
 	//ArrayLists
 	ArrayList<JPanel> p = new ArrayList<JPanel>();
 	ArrayList<JPanel> q= new ArrayList<JPanel>();
