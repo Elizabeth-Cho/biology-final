@@ -9,7 +9,9 @@ import images.*;
 public class PanelIndex {
 	//Image
 	public static ImageIcon back = createImageIcon("blueLights");
+	public static ImageIcon time = createImageIcon("questions/duration.jpg");
 	//Label
+	public static JLabel timeL = new JLabel(time);
 	public static JLabel backL = new JLabel(back);
 	public static JLabel blankA = new JLabel();
 	public static JLabel blankB = new JLabel();
@@ -32,6 +34,7 @@ public class PanelIndex {
 	public static JLabel NAN = 
 			new JLabel("<html><p>Please input a valid number</p></html>");
 	//Others
+	public static JFormattedTextField ageF = new JFormattedTextField();
 	public static ButtonGroup ynA = new ButtonGroup();
 	public static ButtonGroup ynB = new ButtonGroup();
 	public static ButtonGroup ynP = new ButtonGroup();

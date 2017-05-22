@@ -11,6 +11,7 @@ public class Processing {
 	private static String prevVisit;
 	private static String med;
 	private static String hist;
+	public static String category;
 	
 	public Processing(Signal s){
 		sig = s;
@@ -39,8 +40,7 @@ public class Processing {
 	public static void switchToCat(){
 		PanelIndex.two.remove(PanelIndex.baseInfo);
 		PanelIndex.two.remove(PanelIndex.recentInfo);
-		PanelIndex.two.revalidate();
-		PanelIndex.two.repaint();
+		resetPanels();
 		PanelIndex.two.add(PanelIndex.question);
 		PanelIndex.two.add(PanelIndex.multResponses);
 		PanelIndex.multResponses.setLayout(new GridLayout(4, 1));
@@ -58,8 +58,7 @@ public class Processing {
 	public static void switchToA(){
 		PanelIndex.two.remove(PanelIndex.multResponses);
 		//Remove question
-		PanelIndex.two.revalidate();
-		PanelIndex.two.repaint();
+		resetPanels();
 		PanelIndex.two.add(PanelIndex.duration);
 		//Replace question
 		PanelIndex.duration.setLayout(new GridLayout(5, 1));
@@ -71,11 +70,11 @@ public class Processing {
 	}
 	
 	public static void switchToB(){
-		PanelIndex.two.remove(PanelIndex.multResponses);
+		switchCat();
 		//Remove question
-		PanelIndex.two.revalidate();
-		PanelIndex.two.repaint();
+		resetPanels();
 		PanelIndex.two.add(PanelIndex.duration);
+		PanelIndex.question.add(PanelIndex.timeL);
 		//Replace question
 		PanelIndex.duration.setLayout(new GridLayout(5, 1));
 		PanelIndex.duration.add(PanelIndex.lessWeek);
@@ -86,38 +85,68 @@ public class Processing {
 	}
 
 	public static void switchToC(){
-		
+		switchCat();
+		resetPanels();
+		//Add accident type
+		//Add responses	
 	}
 	
 	public static void switchToD(){
-		
+		switchCat();
+		resetPanels();
+		//Add question about incident
+		//Add responses
 	}
 	public static void pathALevelTwo(){
-		
+		PanelIndex.question.remove(PanelIndex.timeL);	//remove time question
+		PanelIndex.two.remove(PanelIndex.duration);
+		resetPanels();
+		//Add where pain is located
+		//Add responses
 	}
 	public static void pathALevelThree(){
-		
+		//Remove question
+		//Remove responses
+		resetPanels();
+		//Add scale of 1-10
+		//Add new responses
+	}
+	public static void pathBLevelTwo(){
+		resetPanels();
+		//Ask where symptoms are located
 	}
 	public static void pathCLevelTwo(){
-		
+		resetPanels();
+		//Where injuries are located
 	}
 	public static void pathCLevelThree(){
-		
-	}
-	public static void pathCLevelFour(){
-		
+		resetPanels();
+		//Scale of 1-10
 	}
 	public static void pathDLevelTwo(){
-		
+		resetPanels();
+		//Man what did you do
 	}
 	public static void pathDLevelThree(){
-		
+		resetPanels();
+		//Duration
 	}
 	public void transferInfo(){
 		UserInfo.name = name;
 		UserInfo.gender = gender;
 		
 	}
+	public static void resetPanels() {
+		PanelIndex.two.revalidate();
+		PanelIndex.two.repaint();
+	}
 	
+	public static void switchCat(){
+		PanelIndex.question.remove(PanelIndex.catTemp);
+		PanelIndex.two.remove(PanelIndex.multResponses);
+	}
+	public static void confirmInfo(){
+		
+	}
 }
  
