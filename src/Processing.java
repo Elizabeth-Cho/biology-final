@@ -12,20 +12,25 @@ public class Processing {
 	private static String med;
 	private static String hist;
 	public static String category;
+	private String[] ynA = {"yesA", "noA"};
+	private String[] ynB = {"yesB", "noB"};
+	
 	
 	public Processing(Signal s){
 		sig = s;
 	}
 	
 	public static boolean checkBase(Object x){
-		if(PanelIndex.nameI.getText().equals("")){
+		if(PanelIndex.nameI.getText().equals("") ||
+				PanelIndex.age.getText().equals("")){
 			//System.out.println("checkBase");
 			//GUI.counter--;
 			//System.out.println(GUI.counter);
 			return false;
 		}
 		else {
-			System.out.println("true");
+			System.out.println(PanelIndex.ynA.getSelection().getActionCommand());
+			//System.out.println("true");
 			return true;
 		}	
 	}
@@ -87,6 +92,7 @@ public class Processing {
 	public static void switchToC(){
 		switchCat();
 		resetPanels();
+		PanelIndex.question.add(PanelIndex.reasonL);
 		//Add accident type
 		//Add responses	
 	}
@@ -94,6 +100,7 @@ public class Processing {
 	public static void switchToD(){
 		switchCat();
 		resetPanels();
+		PanelIndex.two.add(PanelIndex.wotDoL);
 		//Add question about incident
 		//Add responses
 	}
@@ -146,6 +153,9 @@ public class Processing {
 		PanelIndex.two.remove(PanelIndex.multResponses);
 	}
 	public static void confirmInfo(){
+		
+	}
+	public static void loopThrough(){
 		
 	}
 }

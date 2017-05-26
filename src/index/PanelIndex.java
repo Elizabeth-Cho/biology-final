@@ -8,11 +8,16 @@ import images.*;
 
 public class PanelIndex {
 	//Image
-	public static ImageIcon back = createImageIcon("blueLights");
+	//public static ImageIcon back = createImageIcon("blueLights");
 	public static ImageIcon time = createImageIcon("questions/duration.jpg");
-	//Label
+	public static ImageIcon wotDo = createImageIcon("questions/wotDo.jpg");
+	public static ImageIcon reason = createImageIcon("question/reason.jpg");
+	//Label for images
 	public static JLabel timeL = new JLabel(time);
-	public static JLabel backL = new JLabel(back);
+	//public static JLabel backL = new JLabel(back);
+	public static JLabel wotDoL = new JLabel(wotDo);
+	public static JLabel reasonL = new JLabel(reason);
+	//Just images
 	public static JLabel blankA = new JLabel();
 	public static JLabel blankB = new JLabel();
 	public static JLabel blankC = new JLabel();
@@ -33,6 +38,8 @@ public class PanelIndex {
 			new JLabel("<html><p>Please do not leave any fields empty</p></html>");
 	public static JLabel NAN = 
 			new JLabel("<html><p>Please input a valid number</p></html>");
+	public static JLabel al = 
+			new JLabel("<html><p>Do you have any allergies?</p></html>");
 	//Others
 	public static JFormattedTextField ageF = new JFormattedTextField();
 	public static ButtonGroup ynA = new ButtonGroup();
@@ -45,6 +52,7 @@ public class PanelIndex {
 	public static JTextField hist = new JTextField();
 	public static JTextField currMed = new JTextField();
 	public static JTextField age = new JTextField(3);
+	public static JTextField allergies = new JTextField();
 	public static JRadioButton yesA = new JRadioButton("Yes");
 	public static JRadioButton noA = new JRadioButton("No");
 	public static JRadioButton yesB = new JRadioButton("Yes");
@@ -56,6 +64,10 @@ public class PanelIndex {
 	public static JRadioButton female = new JRadioButton("Female");
 	public static JRadioButton yesC = new JRadioButton("Yes");
 	public static JRadioButton noC = new JRadioButton("No");
+	public static JRadioButton yesAl = new JRadioButton("Yes");
+	public static JRadioButton noAl = new JRadioButton("No");
+	public static Color blueA = new Color(147, 218, 236);
+	public static Color blueB = new Color(117, 218, 236);
 	//Panel
 	public static JPanel spaceA = new JPanel();
 	public static JPanel spaceB = new JPanel();
@@ -75,9 +87,13 @@ public class PanelIndex {
 	public static JPanel radioTextA = new JPanel();
 	public static JPanel radioTextB = new JPanel();
 	public static JPanel radioTextC = new JPanel();
+	public static JPanel radioTextD = new JPanel();
 	public static JPanel radioYN = new JPanel();
 	public static JPanel radioG = new JPanel();
 	public static JPanel duration = new JPanel();
+	public static JPanel wrapperMed = new JPanel();
+	public static JPanel wrapperHist = new JPanel();
+	public static JPanel wrapperAl = new JPanel();
 	//Buttons
 	public static JButton pathA = new JButton("Pain");		//Pain
 	public static JButton pathB = new JButton("Illness");	//Illness
@@ -115,10 +131,6 @@ public class PanelIndex {
 	//Temporary labels
 	public static JLabel catTemp = 
 			new JLabel("<html><p>What is your reason for your visit?</p></html>");
-	//ArrayLists
-	ArrayList<JPanel> p = new ArrayList<JPanel>();
-	ArrayList<JPanel> q= new ArrayList<JPanel>();
-	ArrayList<JPanel> r = new ArrayList<JPanel>();
 	
 	private static ImageIcon createImageIcon(String path) {
 		URL resource = Icon.class.getResource("/images/" + path);
@@ -127,5 +139,4 @@ public class PanelIndex {
 		}
 		return new ImageIcon(resource);
 	}
-	
 }

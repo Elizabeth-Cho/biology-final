@@ -1,6 +1,5 @@
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
 
 import javax.swing.*;
 import index.*;
@@ -19,7 +18,7 @@ public class GUI {
 		//frame.add(PanelIndex.test);
 		frame.add(PanelIndex.progress);
 		frame.add(PanelIndex.two);
-		PanelIndex.two.setLayout(new GridLayout(2, 1));
+		PanelIndex.two.setLayout(new GridLayout(3, 1));
 		PanelIndex.two.add(PanelIndex.baseInfo);
 		PanelIndex.two.add(PanelIndex.recentInfo);
 		PanelIndex.baseInfo.setLayout(new GridLayout(4, 2, 10, 5));
@@ -27,6 +26,7 @@ public class GUI {
 		PanelIndex.radioTextA.setLayout(new GridLayout(3, 1, 10, 5));
 		PanelIndex.radioTextB.setLayout(new GridLayout(3, 1, 10, 5));
 		PanelIndex.radioTextC.setLayout(new GridLayout(3, 1, 10, 5));
+		PanelIndex.radioTextD.setLayout(new GridLayout(3, 1, 10, 5));
 		PanelIndex.radioYN.setLayout(new GridLayout(3, 1, 10, 5));
 		PanelIndex.radioG.setLayout(new GridLayout(2, 1, 10, 5));
 		//BaseInfo adding stuff
@@ -38,6 +38,9 @@ public class GUI {
 		PanelIndex.baseInfo.add(PanelIndex.age);
 		PanelIndex.baseInfo.add(PanelIndex.pregnancyL);
 		PanelIndex.baseInfo.add(PanelIndex.radioYN);
+		//Setting sized
+		PanelIndex.nameI.setPreferredSize(new Dimension(50, 35));
+		PanelIndex.age.setPreferredSize(new Dimension(300, 35));
 		//RecentInfo adding stuff
 		PanelIndex.recentInfo.add(PanelIndex.preexisting);
 		PanelIndex.recentInfo.add(PanelIndex.radioTextA);
@@ -46,12 +49,17 @@ public class GUI {
 		PanelIndex.recentInfo.add(PanelIndex.med);
 		PanelIndex.recentInfo.add(PanelIndex.currMed);
 		PanelIndex.recentInfo.add(PanelIndex.radioTextC);
-		PanelIndex.recentInfo.add(PanelIndex.next);
+		PanelIndex.recentInfo.add(PanelIndex.al);
+		PanelIndex.recentInfo.add(PanelIndex.radioTextD);
+		PanelIndex.two.add(PanelIndex.next);
+		PanelIndex.next.setPreferredSize(new Dimension(680, 100));
 		//RadioText adding stuff
 		PanelIndex.radioTextA.add(PanelIndex.yesA);
 		PanelIndex.radioTextA.add(PanelIndex.noA);
 		PanelIndex.ynA.add(PanelIndex.yesA);
 		PanelIndex.ynA.add(PanelIndex.noA);
+		PanelIndex.yesA.setActionCommand("yes");
+		PanelIndex.noA.setActionCommand("no");
 		PanelIndex.radioTextA.add(PanelIndex.currMed);
 		PanelIndex.radioTextB.add(PanelIndex.yesB);
 		PanelIndex.radioTextB.add(PanelIndex.noB);
@@ -71,6 +79,16 @@ public class GUI {
 		PanelIndex.radioTextC.add(PanelIndex.yesC);
 		PanelIndex.radioTextC.add(PanelIndex.noC);
 		PanelIndex.radioTextC.add(PanelIndex.currMed);
+		//Set ActionCommands
+		PanelIndex.yesA.setActionCommand("Yes");
+		PanelIndex.noA.setActionCommand("No");
+		PanelIndex.yesB.setActionCommand("Yes");
+		PanelIndex.noB.setActionCommand("No");
+		PanelIndex.yesP.setActionCommand("Yes");
+		PanelIndex.noP.setActionCommand("No");
+		PanelIndex.idk.setActionCommand("I don't know");
+		PanelIndex.male.setActionCommand("Male");
+		PanelIndex.female.setActionCommand("Female");
 		//PanelIndex.two.add(PanelIndex.st);
 		//PanelIndex.two.add(PanelIndex.a);
 		//Add labels and buttons and such
