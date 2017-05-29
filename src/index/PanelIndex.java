@@ -8,15 +8,19 @@ import images.*;
 
 public class PanelIndex {
 	//Image
-	//public static ImageIcon back = createImageIcon("blueLights");
+	public static ImageIcon backI = createImageIcon("blueLights.jpg");
 	public static ImageIcon time = createImageIcon("questions/duration.jpg");
 	public static ImageIcon wotDo = createImageIcon("questions/wotDo.jpg");
-	public static ImageIcon reason = createImageIcon("question/reason.jpg");
+	public static ImageIcon reasonI = createImageIcon("questions/reason.jpg");
+	public static ImageIcon rateI = createImageIcon("questions/rate.jpg");
+	public static ImageIcon locationI = createImageIcon("questions/location.jpg");
 	//Label for images
 	public static JLabel timeL = new JLabel(time);
-	//public static JLabel backL = new JLabel(back);
+	public static JLabel backL = new JLabel(backI);
 	public static JLabel wotDoL = new JLabel(wotDo);
-	public static JLabel reasonL = new JLabel(reason);
+	public static JLabel reasonL = new JLabel(reasonI);
+	public static JLabel rateL = new JLabel(rateI);
+	public static JLabel locationL = new JLabel(locationI);
 	//Just images
 	public static JLabel blankA = new JLabel();
 	public static JLabel blankB = new JLabel();
@@ -46,7 +50,9 @@ public class PanelIndex {
 	public static ButtonGroup ynB = new ButtonGroup();
 	public static ButtonGroup ynP = new ButtonGroup();
 	public static ButtonGroup genderB = new ButtonGroup();
-	public static ButtonGroup oneToTen = new ButtonGroup();	//Baymax
+	public static ButtonGroup ynAl = new ButtonGroup();
+	public static ButtonGroup oneToTenA = new ButtonGroup();	//Baymax
+	public static ButtonGroup oneToTenB = new ButtonGroup();
 	public static JTextField nameI = new JTextField();
 	public static JTextField preex = new JTextField();
 	public static JTextField hist = new JTextField();
@@ -69,6 +75,7 @@ public class PanelIndex {
 	public static Color blueA = new Color(147, 218, 236);
 	public static Color blueB = new Color(117, 218, 236);
 	//Panel
+	public static JPanel startInfo = new JPanel();
 	public static JPanel spaceA = new JPanel();
 	public static JPanel spaceB = new JPanel();
 	public static JPanel main = new JPanel();
@@ -91,20 +98,37 @@ public class PanelIndex {
 	public static JPanel radioYN = new JPanel();
 	public static JPanel radioG = new JPanel();
 	public static JPanel duration = new JPanel();
+	public static JPanel rate = new JPanel();
+	public static JPanel locationP = new JPanel();
+	//Wrapping panels
 	public static JPanel wrapperMed = new JPanel();
 	public static JPanel wrapperHist = new JPanel();
 	public static JPanel wrapperAl = new JPanel();
+	public static JPanel wrapperNext = new JPanel();
+	public static JPanel wrapperName = new JPanel();
+	public static JPanel wrapperAge = new JPanel();
 	//Buttons
 	public static JButton pathA = new JButton("Pain");		//Pain
 	public static JButton pathB = new JButton("Illness");	//Illness
 	public static JButton pathC = new JButton("Accident");	//Accidents
 	public static JButton pathD = new JButton("Other");		//Other
 	public static JButton next = new JButton("Next");	//For base info
+	public static JButton nextB = new JButton("Next");	//For rate 1-10
 	public static JButton lessWeek = new JButton("Less than a week");
 	public static JButton oneTwoWeek = new JButton("One to two weeks");
 	public static JButton twoThreeWeek = new JButton("Two to three weeks");
 	public static JButton threeFourWeek = new JButton("Three to four weeks");
 	public static JButton moreThanMonth = new JButton("More than a month");
+	public static JButton head = new JButton("Head");
+	public static JButton neck = new JButton("Neck");
+	public static JButton chest = new JButton("Chest");
+	public static JButton stomach = new JButton("Stomach");
+	public static JButton arms = new JButton("Arms");
+	public static JButton legs = new JButton("Legs");
+	public static JButton back = new JButton("Back");
+	public static JButton joint = new JButton("Joints");
+	public static JButton muscles = new JButton("Muscles");
+	public static JButton bones = new JButton("Bones");
 	//Checkboxes, generic symptoms for all related questions
 	public static JCheckBox symptomA = new JCheckBox();
 	public static JCheckBox symptomB = new JCheckBox();

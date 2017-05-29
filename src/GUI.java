@@ -5,7 +5,7 @@ import javax.swing.*;
 import index.*;
 
 public class GUI {
-	private JFrame frame;
+	public static JFrame frame;
 	public static int counter;
 	
 	public GUI() {
@@ -17,18 +17,21 @@ public class GUI {
 		//Add panels
 		//frame.add(PanelIndex.test);
 		frame.add(PanelIndex.progress);
-		frame.add(PanelIndex.two);
-		PanelIndex.two.setLayout(new GridLayout(3, 1));
-		PanelIndex.two.add(PanelIndex.baseInfo);
-		PanelIndex.two.add(PanelIndex.recentInfo);
-		PanelIndex.baseInfo.setLayout(new GridLayout(4, 2, 10, 5));
-		PanelIndex.recentInfo.setLayout(new GridLayout(6, 2, 10, 5));
+		//frame.add(PanelIndex.two);
+		frame.add(PanelIndex.baseInfo);
+		PanelIndex.progress.add(PanelIndex.backL);
+		PanelIndex.two.setLayout(new GridLayout(2, 1));
+		//PanelIndex.two.add(PanelIndex.baseInfo);
+		//PanelIndex.two.add(PanelIndex.recentInfo);
+		PanelIndex.baseInfo.setLayout(new GridLayout(9, 2, 10, 5));
+		//PanelIndex.recentInfo.setLayout(new GridLayout(6, 2, 10, 5));
 		PanelIndex.radioTextA.setLayout(new GridLayout(3, 1, 10, 5));
 		PanelIndex.radioTextB.setLayout(new GridLayout(3, 1, 10, 5));
 		PanelIndex.radioTextC.setLayout(new GridLayout(3, 1, 10, 5));
 		PanelIndex.radioTextD.setLayout(new GridLayout(3, 1, 10, 5));
 		PanelIndex.radioYN.setLayout(new GridLayout(3, 1, 10, 5));
 		PanelIndex.radioG.setLayout(new GridLayout(2, 1, 10, 5));
+		PanelIndex.wrapperName.setLayout(new FlowLayout());
 		//BaseInfo adding stuff
 		PanelIndex.baseInfo.add(PanelIndex.nameL);
 		PanelIndex.baseInfo.add(PanelIndex.nameI);
@@ -38,21 +41,22 @@ public class GUI {
 		PanelIndex.baseInfo.add(PanelIndex.age);
 		PanelIndex.baseInfo.add(PanelIndex.pregnancyL);
 		PanelIndex.baseInfo.add(PanelIndex.radioYN);
-		//Setting sized
-		PanelIndex.nameI.setPreferredSize(new Dimension(50, 35));
-		PanelIndex.age.setPreferredSize(new Dimension(300, 35));
+		//Setting colors
+		PanelIndex.baseInfo.setBackground(PanelIndex.blueA);
 		//RecentInfo adding stuff
-		PanelIndex.recentInfo.add(PanelIndex.preexisting);
-		PanelIndex.recentInfo.add(PanelIndex.radioTextA);
-		PanelIndex.recentInfo.add(PanelIndex.history);
-		PanelIndex.recentInfo.add(PanelIndex.radioTextB);
-		PanelIndex.recentInfo.add(PanelIndex.med);
-		PanelIndex.recentInfo.add(PanelIndex.currMed);
-		PanelIndex.recentInfo.add(PanelIndex.radioTextC);
-		PanelIndex.recentInfo.add(PanelIndex.al);
-		PanelIndex.recentInfo.add(PanelIndex.radioTextD);
-		PanelIndex.two.add(PanelIndex.next);
-		PanelIndex.next.setPreferredSize(new Dimension(680, 100));
+		PanelIndex.baseInfo.add(PanelIndex.preexisting);
+		PanelIndex.baseInfo.add(PanelIndex.radioTextA);
+		PanelIndex.baseInfo.add(PanelIndex.history);
+		PanelIndex.baseInfo.add(PanelIndex.radioTextB);
+		PanelIndex.baseInfo.add(PanelIndex.med);
+		PanelIndex.baseInfo.add(PanelIndex.currMed);
+		PanelIndex.baseInfo.add(PanelIndex.radioTextC);
+		PanelIndex.baseInfo.add(PanelIndex.al);
+		PanelIndex.baseInfo.add(PanelIndex.radioTextD);
+		PanelIndex.baseInfo.add(PanelIndex.wrapperNext);
+		PanelIndex.wrapperNext.add(PanelIndex.next);
+		PanelIndex.wrapperNext.setMaximumSize(new Dimension(680, 20));
+		PanelIndex.next.setPreferredSize(new Dimension(300, 60));
 		//RadioText adding stuff
 		PanelIndex.radioTextA.add(PanelIndex.yesA);
 		PanelIndex.radioTextA.add(PanelIndex.noA);
@@ -60,7 +64,7 @@ public class GUI {
 		PanelIndex.ynA.add(PanelIndex.noA);
 		PanelIndex.yesA.setActionCommand("yes");
 		PanelIndex.noA.setActionCommand("no");
-		PanelIndex.radioTextA.add(PanelIndex.currMed);
+		PanelIndex.radioTextA.add(PanelIndex.preex);
 		PanelIndex.radioTextB.add(PanelIndex.yesB);
 		PanelIndex.radioTextB.add(PanelIndex.noB);
 		PanelIndex.ynB.add(PanelIndex.yesB);
@@ -79,6 +83,9 @@ public class GUI {
 		PanelIndex.radioTextC.add(PanelIndex.yesC);
 		PanelIndex.radioTextC.add(PanelIndex.noC);
 		PanelIndex.radioTextC.add(PanelIndex.currMed);
+		PanelIndex.radioTextD.add(PanelIndex.yesAl);
+		PanelIndex.radioTextD.add(PanelIndex.noAl);
+		PanelIndex.radioTextD.add(PanelIndex.allergies);
 		//Set ActionCommands
 		PanelIndex.yesA.setActionCommand("Yes");
 		PanelIndex.noA.setActionCommand("No");
@@ -129,9 +136,9 @@ public class GUI {
 					Processing.switchToCat();
 				}
 				else{
-					PanelIndex.recentInfo.add(PanelIndex.blankField);
-					PanelIndex.recentInfo.revalidate();
-					PanelIndex.recentInfo.repaint();
+					PanelIndex.baseInfo.add(PanelIndex.blankField);
+					PanelIndex.baseInfo.revalidate();
+					PanelIndex.baseInfo.repaint();
 				}
 				/*System.out.println(counter);
 				PanelIndex.recentInfo.add(PanelIndex.blankField);
@@ -142,20 +149,26 @@ public class GUI {
 			}
 			else if(x == PanelIndex.pathA){
 				Processing.switchToA();
+				Processing.reason = "Pain";
 			}
 			else if(x == PanelIndex.pathB){
 				Processing.switchToB();
+				Processing.reason = "Illness";
 			}
 			else if(x == PanelIndex.pathC){
 				Processing.switchToC();
+				Processing.reason = "Accident";
 			}
 			else if(x == PanelIndex.pathD){
 				Processing.switchToD();
+				Processing.reason = "Other";
 			}
 			else if(x == PanelIndex.lessWeek || x == PanelIndex.oneTwoWeek ||
 					x == PanelIndex.twoThreeWeek || x == PanelIndex.threeFourWeek ||
 					x == PanelIndex.moreThanMonth){
-				
+				Processing.pathALevelTwo();
+				Processing.duration = ((JButton)x).getName();
+				System.out.println(((JButton)x).getName());
 			}
 			String result = "";
 			 
