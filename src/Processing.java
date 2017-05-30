@@ -1,7 +1,9 @@
 import java.awt.*;
 import javax.swing.*;
 
+import index.ArrayListIndex;
 import index.PanelIndex;
+import index.RateIndex;
 
 public class Processing {
 	private Signal sig;
@@ -25,6 +27,13 @@ public class Processing {
 		sig = s;
 	}
 	
+	public static void infoPanel(){
+		PanelIndex.personalInfo.setLayout(new GridLayout(9, 1));
+		
+	}
+	public static void recentPanel(){
+		
+	}
 	public static boolean checkBase(Object x){
 		if(PanelIndex.nameI.getText().equals("") ||
 				PanelIndex.age.getText().equals("")){
@@ -43,9 +52,7 @@ public class Processing {
 	
 	public static void gatherBase(Object x){
 		name = PanelIndex.nameI.getText();
-		//age = Integer.parseInt(PanelIndex.age.getText());
-	
-		
+		//age = Integer.parseInt(PanelIndex.age.getText());	
 	}
 	public static void switchToCat(){
 		GUI.frame.remove(PanelIndex.baseInfo);
@@ -99,8 +106,19 @@ public class Processing {
 		PanelIndex.question.remove(PanelIndex.locationL);
 		PanelIndex.two.remove(PanelIndex.locationP);
 		resetPanels();
+		PanelIndex.two.add(PanelIndex.rateP);
 		PanelIndex.question.add(PanelIndex.rateL);
-		//Add new responses
+		PanelIndex.rateP.setLayout(new GridLayout(4, 1));
+		PanelIndex.rateP.add(PanelIndex.blankA);
+		PanelIndex.rateP.add(PanelIndex.rate);
+		PanelIndex.rateP.add(PanelIndex.blankB);
+		PanelIndex.rateP.add(PanelIndex.nextB);
+		PanelIndex.rate.setLayout(new GridLayout(1, 10, 5, 10));
+		RateIndex.fillC(ArrayListIndex.pathARate);
+		for(int i = 0; i < ArrayListIndex.pathARate.size(); i++) {
+			PanelIndex.rate.add(ArrayListIndex.pathARate.get(i));
+			PanelIndex.oneToTenA.add(ArrayListIndex.pathARate.get(i));
+		}
 	}
 	
 	public static void switchToB(){
@@ -121,32 +139,60 @@ public class Processing {
 		PanelIndex.question.remove(PanelIndex.timeL);
 		PanelIndex.two.remove(PanelIndex.duration);
 		resetPanels();
+		PanelIndex.question.add(PanelIndex.locationL);
+		PanelIndex.two.add(PanelIndex.locationP);
 		//Ask where symptoms are located
+	}
+	
+	public static void pathBLevelThree(){
+		
+		resetPanels();
+		PanelIndex.two.add(PanelIndex.rateP);
+		PanelIndex.question.add(PanelIndex.rateL);
+		PanelIndex.rateP.setLayout(new GridLayout(4, 1));
+		PanelIndex.rateP.add(PanelIndex.blankA);
+		PanelIndex.rateP.add(PanelIndex.rate);
+		PanelIndex.rateP.add(PanelIndex.blankB);
+		PanelIndex.rateP.add(PanelIndex.nextB);
+		PanelIndex.rate.setLayout(new GridLayout(1, 10, 5, 10));
+		RateIndex.fillC(ArrayListIndex.pathBRate);
+		for(int i = 0; i < ArrayListIndex.pathBRate.size(); i++) {
+			PanelIndex.rate.add(ArrayListIndex.pathBRate.get(i));
+			PanelIndex.oneToTenA.add(ArrayListIndex.pathBRate.get(i));
+		}
 	}
 
 	public static void switchToC(){
 		switchCat();
 		resetPanels();
 		PanelIndex.question.add(PanelIndex.reasonL);
-		//Add accident type
+		PanelIndex.two.add(PanelIndex.pathCQ);
+		PanelIndex.pathCQ.setLayout(new GridLayout(1, 3));
+		PanelIndex.pathCQ.add(PanelIndex.accident);
+		PanelIndex.pathCQ.add(PanelIndex.cuts);
+		PanelIndex.pathCQ.add(PanelIndex.pregnancy);
 		//Add responses	
 	}
 	
 	public static void pathCLevelTwo(){
 		PanelIndex.question.remove(PanelIndex.reasonL);
+		PanelIndex.two.remove(PanelIndex.pathCQ);
 		resetPanels();
-		//Where injuries are located
+		PanelIndex.question.add(PanelIndex.locationL);
+		PanelIndex.two.add(PanelIndex.locationP);
 	}
 	
 	public static void pathCLevelThree(){
+		PanelIndex.question.remove(PanelIndex.locationL);
 		resetPanels();
 		//Swap picture
 		//Add rate
+		PanelIndex.question.add(PanelIndex.rateL);
 		PanelIndex.rate.setLayout(new GridLayout(10, 1, 5, 10));
-		for(int i = 1; i < 11; i++) {
-			JButton temp = new JButton(((Integer)i).toString());
-			PanelIndex.rate.add(temp);
-			PanelIndex.oneToTenB.add(temp);
+		RateIndex.fillC(ArrayListIndex.pathCRate);
+		for(int i = 0; i < ArrayListIndex.pathCRate.size(); i++) {
+			PanelIndex.rate.add(ArrayListIndex.pathCRate.get(i));
+			PanelIndex.oneToTenC.add(ArrayListIndex.pathCRate.get(i));
 		}
 		//Scale of 1-10
 	}
@@ -156,22 +202,22 @@ public class Processing {
 		PanelIndex.question.add(PanelIndex.wotDoL);
 		PanelIndex.two.add(PanelIndex.pathDQ);
 		PanelIndex.pathDQ.setLayout(new GridLayout(2, 2));
-		//Add question about incident
+		
 		//Add responses
 	}
 	
-	
 	public static void pathDLevelTwo(){
+		PanelIndex.question.remove(PanelIndex.wotDoL);
+		PanelIndex.two.remove(PanelIndex.pathDQ);
 		resetPanels();
 		//Man what did you do
 	}
 	public static void pathDLevelThree(){
 		resetPanels();
+		PanelIndex.question.add(PanelIndex.timeL);
+		PanelIndex.two.add(PanelIndex.duration);
+		PanelIndex.duration.setLayout(new GridLayout(1, 4));
 		//Duration
-	}
-	
-	public static void setRate(){
-		
 	}
 	public void transferInfo(){
 		UserInfo.name = name;
@@ -189,13 +235,21 @@ public class Processing {
 		PanelIndex.question.remove(PanelIndex.reasonL);
 		PanelIndex.two.remove(PanelIndex.multResponses);
 	}
-	public static void confirmInfo(){
-		
+	public static void endScreen(){
+		GUI.frame.remove(PanelIndex.two);
+		GUI.frame.add(PanelIndex.endTwo);
+		resetPanels();
+		PanelIndex.endTwo.setLayout(new GridLayout(2, 1));
+		PanelIndex.endTwo.add(PanelIndex.endP);
+		PanelIndex.endP.add(PanelIndex.endL);
+		PanelIndex.endTwo.setBackground(PanelIndex.blueA);
 	}
 	public static void loopThrough(){
 		while(!selected){
 			
 		}
 	}
+	public static void getRec(){
+		
+	}
 }
- 

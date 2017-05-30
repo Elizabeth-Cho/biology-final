@@ -38,8 +38,44 @@ public class RateIndex {
 	public static JRadioButton hc = new JRadioButton("8");
 	public static JRadioButton ic = new JRadioButton("9");
 	public static JRadioButton jc = new JRadioButton("10");
-	public static ArrayList<JButton> pathARate = new ArrayList<JButton>();
-	public static ArrayList<JButton> pathBRate = new ArrayList<JButton>();
-	public static ArrayList<JButton> pathCRate = new ArrayList<JButton>();
+	
+	public static void fillA(ArrayList<JRadioButton> list){
+		list.add(a);
+		list.add(b);
+		list.add(c);
+		list.add(d);
+		list.add(e);
+		list.add(f);
+		list.add(g);
+		list.add(h);
+		list.add(i);
+		list.add(j);
+	}
+	
+	public static void fillB(ArrayList<JRadioButton> list){
+		list.add(ab);
+		list.add(bb);
+		list.add(cb);
+		list.add(db);
+		list.add(eb);
+		list.add(fb);
+		list.add(gb);
+		list.add(hb);
+		list.add(ib);
+		list.add(jb);
+	}
+	
+	public static void fillC(ArrayList<JRadioButton> list){
+		list.add(ac);
+		list.add(bc);
+		list.add(cc);
+		list.add(dc);
+		list.add(ec);
+		list.add(fc);
+		list.add(gc);
+		list.add(hc);
+		list.add(ic);
+		list.add(jc);
+	}
 	
 }

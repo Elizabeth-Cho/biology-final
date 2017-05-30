@@ -14,6 +14,7 @@ public class PanelIndex {
 	public static ImageIcon reasonI = createImageIcon("questions/reason.jpg");
 	public static ImageIcon rateI = createImageIcon("questions/rate.jpg");
 	public static ImageIcon locationI = createImageIcon("questions/location.jpg");
+	public static ImageIcon endI = createImageIcon("questions/endScreen.jpg");
 	//Label for images
 	public static JLabel timeL = new JLabel(time);
 	public static JLabel backL = new JLabel(backI);
@@ -21,29 +22,30 @@ public class PanelIndex {
 	public static JLabel reasonL = new JLabel(reasonI);
 	public static JLabel rateL = new JLabel(rateI);
 	public static JLabel locationL = new JLabel(locationI);
+	public static JLabel endL = new JLabel(endI);
 	//Just images
 	public static JLabel blankA = new JLabel();
 	public static JLabel blankB = new JLabel();
 	public static JLabel blankC = new JLabel();
 	public static JLabel place = new JLabel("pictures are supposed to be here");
-	public static JLabel nameL = new JLabel("Name: ");
+	public static JLabel nameL = new JLabel("Name: (Last name, first name)");
 	public static JLabel genderL = new JLabel("Biological gender: ");
-	public static JLabel ageL = new JLabel("Age: ");
-	public static JLabel pregnancyL = new JLabel("Are you currently pregnant: ");
+	public static JLabel ageL = new JLabel("Date of birth: (MM/DD/YYYY) ");
+	public static JLabel pregnancyL = new JLabel("Are you currently pregnant?");
 	public static JLabel visit = 
 			new JLabel("<html><p>Have you been here in the past week?</p></html>");
 	public static JLabel med = 
-			new JLabel("<html><p>Are you currently taking any medications?</p></html>");
+			new JLabel("<html><p>Are you currently taking any medications? (If yes, please list)</p></html>");
 	public static JLabel preexisting = 
-			new JLabel("<html><p>Do you have any preexisting conditions?</p></html>");
+			new JLabel("<html><p>Do you have any preexisting conditions? (If yes, please list)</p></html>");
 	public static JLabel history =
-			new JLabel("<html><p>Do you have any family history of conditions?</p></html>");
+			new JLabel("<html><p>Do you have any family history of conditions? (If yes, please list)</p></html>");
 	public static JLabel blankField = 
 			new JLabel("<html><p>Please do not leave any fields empty</p></html>");
 	public static JLabel NAN = 
 			new JLabel("<html><p>Please input a valid number</p></html>");
 	public static JLabel al = 
-			new JLabel("<html><p>Do you have any allergies?</p></html>");
+			new JLabel("<html><p>Do you have any allergies? (If yes, please list)</p></html>");
 	//Others
 	public static JFormattedTextField ageF = new JFormattedTextField();
 	public static ButtonGroup ynA = new ButtonGroup();
@@ -53,6 +55,7 @@ public class PanelIndex {
 	public static ButtonGroup ynAl = new ButtonGroup();
 	public static ButtonGroup oneToTenA = new ButtonGroup();	//Baymax
 	public static ButtonGroup oneToTenB = new ButtonGroup();
+	public static ButtonGroup oneToTenC = new ButtonGroup();
 	public static JTextField nameI = new JTextField();
 	public static JTextField preex = new JTextField();
 	public static JTextField hist = new JTextField();
@@ -73,7 +76,7 @@ public class PanelIndex {
 	public static JRadioButton yesAl = new JRadioButton("Yes");
 	public static JRadioButton noAl = new JRadioButton("No");
 	public static Color blueA = new Color(147, 218, 236);
-	public static Color blueB = new Color(117, 218, 236);
+	public static Color blueB = new Color(97, 218, 236);
 	//Panel
 	public static JPanel startInfo = new JPanel();
 	public static JPanel spaceA = new JPanel();
@@ -82,6 +85,7 @@ public class PanelIndex {
 	public static JPanel two = new JPanel();
 	public static JPanel baseInfo = new JPanel();
 	public static JPanel recentInfo = new JPanel();
+	public static JPanel personalInfo = new JPanel();
 	public static JPanel categories = new JPanel();
 	public static JPanel pathAQ = new JPanel();
 	public static JPanel pathBQ = new JPanel();
@@ -99,7 +103,10 @@ public class PanelIndex {
 	public static JPanel radioG = new JPanel();
 	public static JPanel duration = new JPanel();
 	public static JPanel rate = new JPanel();
+	public static JPanel rateP = new JPanel();
 	public static JPanel locationP = new JPanel();
+	public static JPanel endTwo = new JPanel();
+	public static JPanel endP = new JPanel();
 	//Wrapping panels
 	public static JPanel wrapperMed = new JPanel();
 	public static JPanel wrapperHist = new JPanel();
@@ -107,6 +114,8 @@ public class PanelIndex {
 	public static JPanel wrapperNext = new JPanel();
 	public static JPanel wrapperName = new JPanel();
 	public static JPanel wrapperAge = new JPanel();
+	public static JPanel wrapperP = new JPanel();
+	public static JPanel wrapperG = new JPanel();
 	//Buttons
 	public static JButton pathA = new JButton("Pain");		//Pain
 	public static JButton pathB = new JButton("Illness");	//Illness
@@ -129,6 +138,9 @@ public class PanelIndex {
 	public static JButton joint = new JButton("Joints");
 	public static JButton muscles = new JButton("Muscles");
 	public static JButton bones = new JButton("Bones");
+	public static JButton accident = new JButton("Accident");
+	public static JButton pregnancy = new JButton("Pregnancy");
+	public static JButton cuts = new JButton("Cuts");
 	//Checkboxes, generic symptoms for all related questions
 	public static JCheckBox symptomA = new JCheckBox();
 	public static JCheckBox symptomB = new JCheckBox();
