@@ -112,7 +112,7 @@ public class GUI {
 			if(x == PanelIndex.next){
 				if(Processing.checkBase(x)){
 					counter++;
-					Processing.transferInfo();
+					//Processing.transferInfo();
 					Processing.switchToCat();
 				}
 				else{

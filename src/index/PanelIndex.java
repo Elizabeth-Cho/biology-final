@@ -14,6 +14,7 @@ public class PanelIndex {
 	public static String[] ynMed = {"", "Yes", "No"};
 	public static String[] ynAlA = {"", "Yes", "No"};
 	public static String[] ynVisit = {"", "Yes", "No"};
+	public static ArrayList<String> sympCheck = new ArrayList<String>();
 	//JComboBox
 	public static JComboBox prC = new JComboBox(ynPr);
 	public static JComboBox preexC = new JComboBox(ynPreex);
@@ -30,6 +31,8 @@ public class PanelIndex {
 	public static ImageIcon locationI = createImageIcon("questions/location.jpg");
 	public static ImageIcon endI = createImageIcon("questions/endScreen.jpg");
 	public static ImageIcon icon = createImageIcon("icon.png");
+	public static ImageIcon accidentI = createImageIcon("questions/accident.jpg");
+	public static ImageIcon symptomIm = createImageIcon("questions/symptoms.jpg");
 	//Label for images
 	public static JLabel timeL = new JLabel(time);
 	public static JLabel backL = new JLabel(backI);
@@ -38,6 +41,8 @@ public class PanelIndex {
 	public static JLabel rateL = new JLabel(rateI);
 	public static JLabel locationL = new JLabel(locationI);
 	public static JLabel endL = new JLabel(endI);
+	public static JLabel accL = new JLabel(accidentI);
+	public static JLabel sympL = new JLabel(symptomIm);
 	//Just images
 	public static JLabel blankA = new JLabel();
 	public static JLabel blankB = new JLabel();
@@ -136,13 +141,13 @@ public class PanelIndex {
 	public static JButton pregnancy = new JButton("Pregnancy");
 	public static JButton cuts = new JButton("Cuts");
 	//Checkboxes, generic symptoms for all related questions
-	public static JCheckBox symptomA = new JCheckBox();
-	public static JCheckBox symptomB = new JCheckBox();
-	public static JCheckBox symptomC = new JCheckBox();
-	public static JCheckBox symptomD = new JCheckBox();
-	public static JCheckBox symptomE = new JCheckBox();
-	public static JCheckBox symptomF = new JCheckBox();
-	public static JCheckBox symptomG = new JCheckBox();
+	public static JCheckBox symptomA = new JCheckBox("Fever");
+	public static JCheckBox symptomB = new JCheckBox("Headache");
+	public static JCheckBox symptomC = new JCheckBox("Drowsiness/Lethargy");
+	public static JCheckBox symptomD = new JCheckBox("Lack of appetite");
+	public static JCheckBox symptomE = new JCheckBox("Stomach pain");
+	public static JCheckBox symptomF = new JCheckBox("Dehydration");
+	public static JCheckBox symptomG = new JCheckBox("Incoherence");
 	public static JCheckBox symptomH = new JCheckBox();
 	public static JCheckBox symptomI = new JCheckBox();
 	public static JCheckBox symptomJ = new JCheckBox();

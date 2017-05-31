@@ -291,7 +291,17 @@ public class Processing {
 	}
 	
 	public static void pathBLevelThree(){
-		
+		PanelIndex.question.remove(PanelIndex.locationL);
+		PanelIndex.two.remove(PanelIndex.locationP);
+		resetPanels();
+		PanelIndex.question.add(PanelIndex.sympL);
+		PanelIndex.two.add(PanelIndex.pathBQ);
+		PanelIndex.pathBQ.setLayout(new GridLayout(7, 1));
+	}
+	
+	public static void pathBLevelFour(){
+		PanelIndex.question.remove(PanelIndex.sympL);
+		PanelIndex.two.remove(PanelIndex.pathBQ);
 		resetPanels();
 		PanelIndex.two.add(PanelIndex.rateP);
 		PanelIndex.question.add(PanelIndex.rateL);
@@ -311,7 +321,7 @@ public class Processing {
 	public static void switchToC(){
 		switchCat();
 		resetPanels();
-		PanelIndex.question.add(PanelIndex.reasonL);
+		PanelIndex.question.add(PanelIndex.accL);
 		PanelIndex.two.add(PanelIndex.pathCQ);
 		PanelIndex.pathCQ.setLayout(new GridLayout(1, 3));
 		PanelIndex.pathCQ.add(PanelIndex.accident);
@@ -321,7 +331,7 @@ public class Processing {
 	}
 	
 	public static void pathCLevelTwo(){
-		PanelIndex.question.remove(PanelIndex.reasonL);
+		PanelIndex.question.remove(PanelIndex.accL);
 		PanelIndex.two.remove(PanelIndex.pathCQ);
 		resetPanels();
 		PanelIndex.question.add(PanelIndex.locationL);
@@ -418,11 +428,11 @@ public class Processing {
 	}
 	public static void endScreen(){
 		GUI.frame.remove(PanelIndex.two);
-		GUI.frame.add(PanelIndex.endTwo);
 		resetPanels();
+		GUI.frame.add(PanelIndex.endTwo);
 		PanelIndex.endTwo.setLayout(new GridLayout(2, 1));
-		PanelIndex.endTwo.add(PanelIndex.endP);
-		PanelIndex.endP.add(PanelIndex.endL);
+		//PanelIndex.endTwo.add(PanelIndex.endP);
+		PanelIndex.endTwo.add(PanelIndex.endL);
 		PanelIndex.endTwo.setBackground(PanelIndex.blueA);
 	}
 	public static void loopThrough(){
