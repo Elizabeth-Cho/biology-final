@@ -3,9 +3,9 @@ package index;
 import javax.swing.*;
 
 public class PersonalPI {
-	public static String[] race = {"", "American Indian", "Alaska Native",
-			"Asian", "African American", "Decline", "Native Hawiian",
-			"Other Pacific Islander", "White"};
+	public static String[] race = {"", "Alaska Native","Asian", 
+			"African American", "Caucasian", "Hispanic",
+			"Native American", "Other Pacific Islander"};
 	public static String[] emp = {"", "Full time", "Part time",
 			"Not employed", "Retired", "Self employed", "Military",
 			"Other"};
@@ -33,6 +33,14 @@ public class PersonalPI {
 	public static JTextField eNumber = new JTextField();
 	public static JTextField insProv = new JTextField();
 	public static JTextField insID = new JTextField();
+	public static JTextField insHold = new JTextField();
+	public static JTextField pcName = new JTextField();
+	public static JTextField pcNum = new JTextField();
+	public static JTextField pcAddr = new JTextField();
+	public static JTextField employer = new JTextField();
+	public static JTextField occupation = new JTextField();
+	public static JTextField empAdd = new JTextField();
+	public static JTextField empNum = new JTextField();
 	
 	public static JLabel fNL = new JLabel("First name");
 	public static JLabel mNL = new JLabel("Middle name");
@@ -49,19 +57,19 @@ public class PersonalPI {
 	public static JLabel empL = new JLabel("Employer");
 	public static JLabel occL = new JLabel("Occupation");
 	public static JLabel empAddL = new JLabel("Employer address");
+	public static JLabel empNumL = new JLabel("Employer phone number");
 	public static JLabel covTypeL = new JLabel("Type of Coverage");
 	public static JLabel relL = new JLabel("Relation to holder");
 	public static JLabel genL = new JLabel("Gender");
-	
-	public static JLabel nameA = new JLabel();
-	public static JLabel nameB = new JLabel();
-	public static JLabel conA = new JLabel();
-	public static JLabel conB = new JLabel();
-	public static JLabel conC = new JLabel();
-	public static JLabel conD = new JLabel();
-	public static JLabel conE = new JLabel();
-	public static JLabel conF = new JLabel();
-	public static JLabel raceA = new JLabel();
+	public static JLabel insHoldL = new JLabel("Insurance holder");
+	public static JLabel pcNameL = new JLabel("Primary care physican");
+	public static JLabel pcNumL = new JLabel("Phone number");
+	public static JLabel pcAddrL = new JLabel("Address");
+
+	public static JLabel alA = new JLabel();
+	public static JLabel medA = new JLabel();
+	public static JLabel preexA = new JLabel();
+	public static JLabel histA = new JLabel();
 	
 	public static JPanel nameP = new JPanel();		//3x3
 	public static JPanel addrP = new JPanel();		//2x1
@@ -70,4 +78,14 @@ public class PersonalPI {
 	public static JPanel eConP = new JPanel();		//2x2
 	public static JPanel insInputP = new JPanel();	//2x2
 	public static JPanel insComboP = new JPanel();	//2x2
+	public static JPanel primCarePA = new JPanel();	//2x2
+	public static JPanel primCarePB = new JPanel();	//2x1
+	//Info panels
+	public static JPanel alP = new JPanel();
+	public static JPanel medP = new JPanel();
+	public static JPanel preexP = new JPanel();
+	public static JPanel histP = new JPanel();
+	public static JPanel prP = new JPanel();
+	public static JPanel empPA = new JPanel();
+	public static JPanel empPB = new JPanel();
 }

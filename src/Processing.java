@@ -34,14 +34,18 @@ public class Processing {
 		PanelIndex.personalInfo.add(PersonalPI.eConP);
 		PanelIndex.personalInfo.add(PersonalPI.insInputP);
 		PanelIndex.personalInfo.add(PersonalPI.insComboP);
+		PanelIndex.personalInfo.add(PersonalPI.empPA);
+		PanelIndex.personalInfo.add(PersonalPI.empPB);
 		
 		PersonalPI.nameP.setLayout(new GridLayout(2, 3));
 		PersonalPI.addrP.setLayout(new GridLayout(2, 1));
 		PersonalPI.contactP.setLayout(new GridLayout(2, 2));
-		PersonalPI.birthP.setLayout(new GridLayout(2, 2));
+		PersonalPI.birthP.setLayout(new GridLayout(2, 3));
 		PersonalPI.eConP.setLayout(new GridLayout(2, 2));
-		PersonalPI.insInputP.setLayout(new GridLayout(2, 2));
+		PersonalPI.insInputP.setLayout(new GridLayout(2, 3));
 		PersonalPI.insComboP.setLayout(new GridLayout(2, 2));
+		PersonalPI.empPA.setLayout(new GridLayout(2, 2));
+		PersonalPI.empPB.setLayout(new GridLayout(2, 2));
 		
 		PersonalPI.nameP.add(PersonalPI.fNL);
 		PersonalPI.nameP.add(PersonalPI.mNL);
@@ -57,26 +61,91 @@ public class Processing {
 		PersonalPI.contactP.add(PersonalPI.number);
 		PersonalPI.birthP.add(PersonalPI.birthL);
 		PersonalPI.birthP.add(PersonalPI.genL);
+		PersonalPI.birthP.add(PersonalPI.raceL);
 		PersonalPI.birthP.add(PersonalPI.dob);
 		PersonalPI.birthP.add(PersonalPI.genC);
+		PersonalPI.birthP.add(PersonalPI.raceC);
 		PersonalPI.eConP.add(PersonalPI.eNameL);
 		PersonalPI.eConP.add(PersonalPI.eNumL);
 		PersonalPI.eConP.add(PersonalPI.eName);
 		PersonalPI.eConP.add(PersonalPI.eNumber);
 		PersonalPI.insInputP.add(PersonalPI.insProvL);
+		PersonalPI.insInputP.add(PersonalPI.insHoldL);
 		PersonalPI.insInputP.add(PersonalPI.insIDL);
 		PersonalPI.insInputP.add(PersonalPI.insProv);
+		PersonalPI.insInputP.add(PersonalPI.insHold);
 		PersonalPI.insInputP.add(PersonalPI.insID);
 		PersonalPI.insComboP.add(PersonalPI.covTypeL);
 		PersonalPI.insComboP.add(PersonalPI.relL);
 		PersonalPI.insComboP.add(PersonalPI.covTypeC);
 		PersonalPI.insComboP.add(PersonalPI.relC);
+		PersonalPI.empPA.add(PersonalPI.occL);
+		PersonalPI.empPA.add(PersonalPI.empL);
+		PersonalPI.empPA.add(PersonalPI.occupation);
+		PersonalPI.empPA.add(PersonalPI.employer);
+		PersonalPI.empPB.add(PersonalPI.empAddL);
+		PersonalPI.empPB.add(PersonalPI.empNumL);
+		PersonalPI.empPB.add(PersonalPI.empAdd);
+		PersonalPI.empPB.add(PersonalPI.empNum);
+	}
+	public static void basePanel(){
+		PanelIndex.baseInfo.setLayout(new GridLayout(8, 1));
+		PanelIndex.radioTextA.setLayout(new GridLayout(2, 1, 10, 5));
+		PanelIndex.radioTextB.setLayout(new GridLayout(2, 1, 10, 5));
+		PanelIndex.radioTextC.setLayout(new GridLayout(2, 1, 10, 5));
+		PanelIndex.radioTextD.setLayout(new GridLayout(2, 1, 10, 5));
+		PanelIndex.radioYN.setLayout(new GridLayout(1, 1, 10, 5));
+		PersonalPI.primCarePA.setLayout(new GridLayout(2, 2));
+		PersonalPI.primCarePB.setLayout(new GridLayout(2, 1));
+		PersonalPI.alP.setLayout(new GridLayout(2, 2));
+		PersonalPI.medP.setLayout(new GridLayout(2, 2));
+		PersonalPI.preexP.setLayout(new GridLayout(2, 2));
+		PersonalPI.histP.setLayout(new GridLayout(2, 2));
+		PersonalPI.prP.setLayout(new GridLayout(2, 2));
+		
+		PanelIndex.baseInfo.add(PersonalPI.primCarePA);
+		PanelIndex.baseInfo.add(PersonalPI.primCarePB);
+		PanelIndex.baseInfo.add(PersonalPI.alP);
+		PanelIndex.baseInfo.add(PersonalPI.medP);
+		PanelIndex.baseInfo.add(PersonalPI.preexP);
+		PanelIndex.baseInfo.add(PersonalPI.histP);
+		PanelIndex.baseInfo.add(PersonalPI.prP);
+		
+		PersonalPI.primCarePA.add(PersonalPI.pcNameL);
+		PersonalPI.primCarePA.add(PersonalPI.pcNumL);
+		PersonalPI.primCarePA.add(PersonalPI.pcName);
+		PersonalPI.primCarePA.add(PersonalPI.pcNum);
+		PersonalPI.primCarePB.add(PersonalPI.pcAddrL);
+		PersonalPI.primCarePB.add(PersonalPI.pcAddr);
+		PersonalPI.alP.add(PanelIndex.al);
+		PersonalPI.alP.add(PersonalPI.alA);
+		PersonalPI.alP.add(PanelIndex.alC);
+		PersonalPI.alP.add(PanelIndex.allergies);
+		PersonalPI.medP.add(PanelIndex.med);
+		PersonalPI.medP.add(PersonalPI.medA);
+		PersonalPI.medP.add(PanelIndex.medC);
+		PersonalPI.medP.add(PanelIndex.currMed);
+		PersonalPI.preexP.add(PanelIndex.preexisting);
+		PersonalPI.preexP.add(PersonalPI.preexA);
+		PersonalPI.preexP.add(PanelIndex.preexC);
+		PersonalPI.preexP.add(PanelIndex.preex);
+		PersonalPI.histP.add(PanelIndex.history);
+		PersonalPI.histP.add(PersonalPI.histA);
+		PersonalPI.histP.add(PanelIndex.histC);
+		PersonalPI.histP.add(PanelIndex.hist);
+		PersonalPI.prP.add(PanelIndex.pregnancyL);
+		PersonalPI.prP.add(PanelIndex.prC);
+		
+		PanelIndex.baseInfo.add(PanelIndex.wrapperNext);
+		PanelIndex.wrapperNext.setLayout(new GridLayout(1, 2));
+		PanelIndex.wrapperNext.add(PanelIndex.next);
 	}
 	public static boolean checkBase(Object x){
-		String alStr;
-		String preexStr;
-		String histStr;
-		String medStr;
+		String alStr = PanelIndex.alC.getSelectedItem().toString();
+		String preexStr = PanelIndex.preexC.getSelectedItem().toString();
+		String histStr = PanelIndex.histC.getSelectedItem().toString();
+		String medStr = PanelIndex.medC.getSelectedItem().toString();
+		String prStr = PanelIndex.prC.getSelectedItem().toString();
 		if(PersonalPI.fN.getText().equals("")||
 				PersonalPI.mN.getText().equals("")||
 				PersonalPI.lN.getText().equals("")||
@@ -87,11 +156,26 @@ public class Processing {
 				PersonalPI.eName.getText().equals("")||
 				PersonalPI.eNumber.getText().equals("")||
 				PersonalPI.insProv.getText().equals("")||
-				PersonalPI.insID.getText().equals("")){
+				PersonalPI.insID.getText().equals("")||
+				alStr.equals("") || preexStr.equals("")||
+				histStr.equals("")||medStr.equals("")||
+				prStr.equals("")){
 			//PanelIndex.baseInfo.add(PanelIndex.blankField);
 			//System.out.println("checkBase");
 			//GUI.counter--;
 			//System.out.println(GUI.counter);
+			return false;
+		}
+		else if(alStr.equals("Yes") && PanelIndex.allergies.getText().equals("")){
+			return false;
+		}
+		else if(preexStr.equals("Yes") && PanelIndex.preex.getText().equals("")){
+			return false;
+		}
+		else if(histStr.equals("Yes") && PanelIndex.hist.getText().equals("")){
+			return false;
+		}
+		else if(medStr.equals("Yes") && PanelIndex.currMed.getText().equals("")){
 			return false;
 		}
 		else {

@@ -16,7 +16,7 @@ public class GUI {
 		//Set frames
 		frame = new JFrame("Final project"); //Rename
 		frame.setSize(800, 600);
-		frame.setLayout(new GridLayout(1, 2, 10, 5));
+		frame.setLayout(new GridLayout(1, 2, 5, 5));
 		//Add panels
 		//frame.add(PanelIndex.test);
 		frame.add(PanelIndex.personalInfo);
@@ -24,64 +24,47 @@ public class GUI {
 		frame.setIconImage(PanelIndex.icon.getImage());
 		//frame.add(PanelIndex.two);
 		Processing.infoPanel();
+		Processing.basePanel();
 		PanelIndex.progress.add(PanelIndex.backL);
 		PanelIndex.two.setLayout(new GridLayout(2, 1));
 		//PanelIndex.two.add(PanelIndex.baseInfo);
 		//PanelIndex.two.add(PanelIndex.recentInfo);
-		PanelIndex.baseInfo.setLayout(new GridLayout(7, 2));
+		
 		//PanelIndex.recentInfo.setLayout(new GridLayout(6, 2, 10, 5));
-		PanelIndex.radioTextA.setLayout(new GridLayout(2, 1, 10, 5));
-		PanelIndex.radioTextB.setLayout(new GridLayout(2, 1, 10, 5));
-		PanelIndex.radioTextC.setLayout(new GridLayout(2, 1, 10, 5));
-		PanelIndex.radioTextD.setLayout(new GridLayout(2, 1, 10, 5));
-		PanelIndex.radioYN.setLayout(new GridLayout(1, 1, 10, 5));
+		
 		//Setting borders
-		PanelIndex.radioTextA.setBorder(BorderFactory.createLineBorder(Color.black));
-		PanelIndex.radioTextB.setBorder(BorderFactory.createLineBorder(Color.black));
-		PanelIndex.radioTextC.setBorder(BorderFactory.createLineBorder(Color.black));
-		PanelIndex.radioTextD.setBorder(BorderFactory.createLineBorder(Color.black));
-		PanelIndex.pregnancyL.setBorder(BorderFactory.createLineBorder(Color.black));
-		PanelIndex.al.setBorder(BorderFactory.createLineBorder(Color.black));
-		PanelIndex.preexisting.setBorder(BorderFactory.createLineBorder(Color.black));
-		PanelIndex.history.setBorder(BorderFactory.createLineBorder(Color.black));
-		PanelIndex.med.setBorder(BorderFactory.createLineBorder(Color.black));
-		PanelIndex.visit.setBorder(BorderFactory.createLineBorder(Color.black));
+		PanelIndex.personalInfo.setBorder(BorderFactory.createLineBorder(Color.black));
+		PanelIndex.baseInfo.setBorder(BorderFactory.createLineBorder(Color.black));
 		//Setting colors
 		frame.setBackground(Color.black);
 		//BaseInfo adding stuff
-		PanelIndex.baseInfo.add(PanelIndex.visit);
-		PanelIndex.baseInfo.add(PanelIndex.visitC);
-		PanelIndex.baseInfo.add(PanelIndex.al);
+		
+		/*PanelIndex.baseInfo.add(PanelIndex.al);
 		PanelIndex.baseInfo.add(PanelIndex.radioTextD);
+		PanelIndex.baseInfo.add(PanelIndex.med);
+		PanelIndex.baseInfo.add(PanelIndex.radioTextC);
 		PanelIndex.baseInfo.add(PanelIndex.preexisting);
 		PanelIndex.baseInfo.add(PanelIndex.radioTextA);
 		PanelIndex.baseInfo.add(PanelIndex.history);
 		PanelIndex.baseInfo.add(PanelIndex.radioTextB);
-		PanelIndex.baseInfo.add(PanelIndex.med);
-		PanelIndex.baseInfo.add(PanelIndex.radioTextC);
 		PanelIndex.baseInfo.add(PanelIndex.pregnancyL);
-		PanelIndex.baseInfo.add(PanelIndex.radioYN);
-		PanelIndex.baseInfo.add(PanelIndex.wrapperNext);
-		PanelIndex.wrapperNext.add(PanelIndex.next);
-		PanelIndex.wrapperNext.setMaximumSize(new Dimension(680, 20));
-		PanelIndex.next.setPreferredSize(new Dimension(300, 60));
+		PanelIndex.baseInfo.add(PanelIndex.radioYN);*/
+		
 		/*PanelIndex.radioG.setBackground(PanelIndex.blueB);
 		PanelIndex.radioYN.setBackground(PanelIndex.blueB);
 		PanelIndex.radioTextB.setBackground(PanelIndex.blueB);
 		PanelIndex.radioTextD.setBackground(PanelIndex.blueB);*/
 		//RadioText adding stuff
-		PanelIndex.radioTextA.add(PanelIndex.preexC);
+		/*PanelIndex.radioTextA.add(PanelIndex.preexC);
 		PanelIndex.radioTextA.add(PanelIndex.preex);
-		
 		PanelIndex.radioTextB.add(PanelIndex.histC);		
 		PanelIndex.radioTextB.add(PanelIndex.hist);
-		
 		PanelIndex.radioYN.add(PanelIndex.prC);
-	
 		PanelIndex.radioTextC.add(PanelIndex.medC);
 		PanelIndex.radioTextC.add(PanelIndex.currMed);
 		PanelIndex.radioTextD.add(PanelIndex.alC);
-		PanelIndex.radioTextD.add(PanelIndex.allergies);
+		PanelIndex.radioTextD.add(PanelIndex.allergies);*/
+		
 		//PanelIndex.two.add(PanelIndex.st);
 		//PanelIndex.two.add(PanelIndex.a);
 		//Add labels and buttons and such
@@ -133,7 +116,7 @@ public class GUI {
 					Processing.switchToCat();
 				}
 				else{
-					PanelIndex.baseInfo.add(PanelIndex.blankField);
+					PanelIndex.wrapperNext.add(PanelIndex.blankField);
 					PanelIndex.baseInfo.revalidate();
 					PanelIndex.baseInfo.repaint();
 				}
