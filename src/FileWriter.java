@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class FileWriter {
-	private static String fileName = UserInfo.name + ".txt";
+	private static String fileName = UserInfo.lN + UserInfo.fN + UserInfo.mN + ".txt";
 	private static File file;
 	private static String path = "c:\\Users\\zergl\\workspace\\biology-final\\src\\files\\" + fileName;
 	
@@ -17,7 +17,7 @@ public class FileWriter {
 				System.out.println("nope");
 			}
 			PrintWriter writer= new PrintWriter(path, "UTF-8");
-			writer.println("Hello");
+			writer.println("Name: "+ UserInfo.lN + ", " + UserInfo.fN + " " +UserInfo.mN);
 			writer.close();
 		}
 		catch(IOException e){

@@ -112,13 +112,14 @@ public class GUI {
 			if(x == PanelIndex.next){
 				if(Processing.checkBase(x)){
 					counter++;
-					Processing.gatherBase(x);
+					Processing.transferInfo();
 					Processing.switchToCat();
 				}
 				else{
 					PanelIndex.wrapperNext.add(PanelIndex.blankField);
 					PanelIndex.baseInfo.revalidate();
 					PanelIndex.baseInfo.repaint();
+					new PopupGUI();
 				}
 				/*System.out.println(counter);
 				PanelIndex.recentInfo.add(PanelIndex.blankField);

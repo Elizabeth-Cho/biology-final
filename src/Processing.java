@@ -5,9 +5,9 @@ import index.*;;
 
 public class Processing {
 	private Signal sig;
-	private static String name;
+	private static String fN, mN, lN;
 	private static String gender;
-	private static String age;
+	private static String birth;
 	private static String pregnant;
 	private static String prevVisit;
 	private static String med;
@@ -146,6 +146,8 @@ public class Processing {
 		String histStr = PanelIndex.histC.getSelectedItem().toString();
 		String medStr = PanelIndex.medC.getSelectedItem().toString();
 		String prStr = PanelIndex.prC.getSelectedItem().toString();
+		String covStr = PersonalPI.covTypeC.getSelectedItem().toString();
+		String relStr = PersonalPI.relC.getSelectedItem().toString();
 		if(PersonalPI.fN.getText().equals("")||
 				PersonalPI.mN.getText().equals("")||
 				PersonalPI.lN.getText().equals("")||
@@ -157,9 +159,17 @@ public class Processing {
 				PersonalPI.eNumber.getText().equals("")||
 				PersonalPI.insProv.getText().equals("")||
 				PersonalPI.insID.getText().equals("")||
+				PersonalPI.insHold.getText().equals("")||
+				PersonalPI.occupation.getText().equals("")||
+				PersonalPI.employer.getText().equals("")||
+				PersonalPI.empAdd.getText().equals("")||
+				PersonalPI.pcName.getText().equals("")||
+				PersonalPI.pcNum.getText().equals("")||
+				PersonalPI.pcAddr.getText().equals("")||
 				alStr.equals("") || preexStr.equals("")||
 				histStr.equals("")||medStr.equals("")||
-				prStr.equals("")){
+				prStr.equals("")||covStr.equals("")||
+				relStr.equals("")){
 			//PanelIndex.baseInfo.add(PanelIndex.blankField);
 			//System.out.println("checkBase");
 			//GUI.counter--;
@@ -185,14 +195,15 @@ public class Processing {
 		}	
 	}
 	
-	public static void gatherBase(Object x){
-		name = PanelIndex.nameI.getText();
-		//age = Integer.parseInt(PanelIndex.age.getText());	
+	public static void checkFormat(){
+		
 	}
 	public static void switchToCat(){
 		GUI.frame.remove(PanelIndex.baseInfo);
+		GUI.frame.remove(PanelIndex.personalInfo);
 		//PanelIndex.two.remove(PanelIndex.recentInfo);
 		resetPanels();
+		GUI.frame.add(PanelIndex.progress);
 		GUI.frame.add(PanelIndex.two);
 		resetPanels();
 		PanelIndex.two.add(PanelIndex.question);
@@ -354,10 +365,45 @@ public class Processing {
 		PanelIndex.duration.setLayout(new GridLayout(1, 4));
 		//Duration
 	}
-	public void transferInfo(){
-		UserInfo.name = name;
-		UserInfo.gender = gender;
-		
+	public static void transferInfo(){
+		UserInfo.fN = PersonalPI.fN.getText();
+		UserInfo.mN = PersonalPI.mN.getText();
+		UserInfo.lN = PersonalPI.lN.getText();
+		UserInfo.birth = PersonalPI.dob.getText();
+		UserInfo.gender = PersonalPI.genC.getSelectedItem().toString();
+		UserInfo.race = PersonalPI.raceC.getSelectedItem().toString();
+		UserInfo.addr = PersonalPI.addr.getText();
+		UserInfo.email = PersonalPI.email.getText();
+		UserInfo.num = PersonalPI.number.getText();
+		UserInfo.eName = PersonalPI.eName.getText();
+		UserInfo.eNum = PersonalPI.eNumber.getText();
+		UserInfo.insP = PersonalPI.insProv.getText();
+		UserInfo.insH = PersonalPI.insHold.getText();
+		UserInfo.insID = PersonalPI.insID.getText();
+		UserInfo.covC = PersonalPI.covTypeC.getSelectedItem().toString();
+		UserInfo.relC = PersonalPI.relC.getSelectedItem().toString();
+		UserInfo.occ = PersonalPI.occupation.getText();
+		UserInfo.emp = PersonalPI.employer.getText();
+		UserInfo.empAddr = PersonalPI.empAdd.getText();
+		UserInfo.empNum = PersonalPI.empNum.getText();
+		UserInfo.pcName = PersonalPI.pcName.getText();
+		UserInfo.pcAddr = PersonalPI.pcAddr.getText();
+		UserInfo.alYN = PanelIndex.alC.getSelectedItem().toString();
+		UserInfo.medYN = PanelIndex.medC.getSelectedItem().toString();
+		UserInfo.histYN = PanelIndex.histC.getSelectedItem().toString();
+		UserInfo.prYN = PanelIndex.prC.getSelectedItem().toString();
+		if(UserInfo.alYN.equals("Yes")){
+			UserInfo.allergies = PanelIndex.allergies.getText();
+		}
+		if(UserInfo.medYN.equals("Yes")){
+			UserInfo.meds = PanelIndex.currMed.getText();
+		}
+		if(UserInfo.preexYN.equals("Yes")){
+			UserInfo.preex = PanelIndex.preex.getText();
+		}
+		if(UserInfo.histYN.equals("Yes")){
+			UserInfo.hist = PanelIndex.hist.getText();
+		}
 	}
 	public static void resetPanels() {
 		GUI.frame.revalidate();

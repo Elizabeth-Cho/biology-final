@@ -10,9 +10,9 @@ public class PersonalPI {
 			"Not employed", "Retired", "Self employed", "Military",
 			"Other"};
 	public static String[] covType = {"", "Primary", "Secondary",
-			"Tertiary"};
+			"Tertiary", "Not Applicable"};
 	public static String[] rel = {"", "Self", "Spouse", "Child",
-			"Father", "Mother", "Siblings"};
+			"Father", "Mother", "Siblings", "Not Applicable"};
 	public static String[] gender = {"", "Male", "Female"};
 	
 	public static JComboBox raceC = new JComboBox(race);
