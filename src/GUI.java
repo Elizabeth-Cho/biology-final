@@ -19,103 +19,69 @@ public class GUI {
 		frame.setLayout(new GridLayout(1, 2, 10, 5));
 		//Add panels
 		//frame.add(PanelIndex.test);
+		frame.add(PanelIndex.personalInfo);
 		frame.add(PanelIndex.baseInfo);
+		frame.setIconImage(PanelIndex.icon.getImage());
 		//frame.add(PanelIndex.two);
-		frame.add(PanelIndex.progress);
+		Processing.infoPanel();
 		PanelIndex.progress.add(PanelIndex.backL);
 		PanelIndex.two.setLayout(new GridLayout(2, 1));
 		//PanelIndex.two.add(PanelIndex.baseInfo);
 		//PanelIndex.two.add(PanelIndex.recentInfo);
-		PanelIndex.baseInfo.setLayout(new GridLayout(9, 2));
+		PanelIndex.baseInfo.setLayout(new GridLayout(7, 2));
 		//PanelIndex.recentInfo.setLayout(new GridLayout(6, 2, 10, 5));
-		PanelIndex.radioTextA.setLayout(new GridLayout(3, 1, 10, 5));
-		PanelIndex.radioTextB.setLayout(new GridLayout(3, 1, 10, 5));
-		PanelIndex.radioTextC.setLayout(new GridLayout(3, 1, 10, 5));
-		PanelIndex.radioTextD.setLayout(new GridLayout(3, 1, 10, 5));
-		PanelIndex.radioYN.setLayout(new GridLayout(3, 1, 10, 5));
-		PanelIndex.radioG.setLayout(new GridLayout(2, 1, 10, 5));
-		PanelIndex.wrapperName.setLayout(new FlowLayout());
-		//BaseInfo adding stuff
-		PanelIndex.baseInfo.add(PanelIndex.nameL);
-		PanelIndex.baseInfo.add(PanelIndex.nameI);
-		PanelIndex.baseInfo.add(PanelIndex.wrapperG);	//wrapper
-		PanelIndex.baseInfo.add(PanelIndex.radioG);
-		PanelIndex.baseInfo.add(PanelIndex.ageL);
-		PanelIndex.baseInfo.add(PanelIndex.age);
-		PanelIndex.baseInfo.add(PanelIndex.wrapperP);	//wrapper
-		PanelIndex.baseInfo.add(PanelIndex.radioYN);
-		PanelIndex.wrapperG.add(PanelIndex.genderL);
-		PanelIndex.wrapperP.add(PanelIndex.pregnancyL);
+		PanelIndex.radioTextA.setLayout(new GridLayout(2, 1, 10, 5));
+		PanelIndex.radioTextB.setLayout(new GridLayout(2, 1, 10, 5));
+		PanelIndex.radioTextC.setLayout(new GridLayout(2, 1, 10, 5));
+		PanelIndex.radioTextD.setLayout(new GridLayout(2, 1, 10, 5));
+		PanelIndex.radioYN.setLayout(new GridLayout(1, 1, 10, 5));
 		//Setting borders
-		PanelIndex.nameI.setBorder(new LineBorder(Color.black, 1));
-		PanelIndex.radioG.setBorder(BorderFactory.createLineBorder(Color.black));
+		PanelIndex.radioTextA.setBorder(BorderFactory.createLineBorder(Color.black));
+		PanelIndex.radioTextB.setBorder(BorderFactory.createLineBorder(Color.black));
+		PanelIndex.radioTextC.setBorder(BorderFactory.createLineBorder(Color.black));
+		PanelIndex.radioTextD.setBorder(BorderFactory.createLineBorder(Color.black));
+		PanelIndex.pregnancyL.setBorder(BorderFactory.createLineBorder(Color.black));
+		PanelIndex.al.setBorder(BorderFactory.createLineBorder(Color.black));
+		PanelIndex.preexisting.setBorder(BorderFactory.createLineBorder(Color.black));
+		PanelIndex.history.setBorder(BorderFactory.createLineBorder(Color.black));
+		PanelIndex.med.setBorder(BorderFactory.createLineBorder(Color.black));
+		PanelIndex.visit.setBorder(BorderFactory.createLineBorder(Color.black));
 		//Setting colors
-		PanelIndex.baseInfo.setBackground(PanelIndex.blueA);
-		PanelIndex.wrapperG.setBackground(PanelIndex.blueB);
-		PanelIndex.wrapperP.setBackground(PanelIndex.blueB);
-		//RecentInfo adding stuff
+		frame.setBackground(Color.black);
+		//BaseInfo adding stuff
+		PanelIndex.baseInfo.add(PanelIndex.visit);
+		PanelIndex.baseInfo.add(PanelIndex.visitC);
+		PanelIndex.baseInfo.add(PanelIndex.al);
+		PanelIndex.baseInfo.add(PanelIndex.radioTextD);
 		PanelIndex.baseInfo.add(PanelIndex.preexisting);
 		PanelIndex.baseInfo.add(PanelIndex.radioTextA);
-		PanelIndex.baseInfo.add(PanelIndex.wrapperHist);	//wrapper
+		PanelIndex.baseInfo.add(PanelIndex.history);
 		PanelIndex.baseInfo.add(PanelIndex.radioTextB);
 		PanelIndex.baseInfo.add(PanelIndex.med);
-		PanelIndex.baseInfo.add(PanelIndex.currMed);
 		PanelIndex.baseInfo.add(PanelIndex.radioTextC);
-		PanelIndex.baseInfo.add(PanelIndex.wrapperAl);		//wrapper
-		PanelIndex.baseInfo.add(PanelIndex.radioTextD);
+		PanelIndex.baseInfo.add(PanelIndex.pregnancyL);
+		PanelIndex.baseInfo.add(PanelIndex.radioYN);
 		PanelIndex.baseInfo.add(PanelIndex.wrapperNext);
-		PanelIndex.wrapperHist.add(PanelIndex.history);
-		PanelIndex.wrapperAl.add(PanelIndex.al);
 		PanelIndex.wrapperNext.add(PanelIndex.next);
 		PanelIndex.wrapperNext.setMaximumSize(new Dimension(680, 20));
 		PanelIndex.next.setPreferredSize(new Dimension(300, 60));
-		PanelIndex.wrapperNext.setBackground(PanelIndex.blueA);
-		PanelIndex.wrapperHist.setBackground(PanelIndex.blueB);
-		PanelIndex.wrapperAl.setBackground(PanelIndex.blueB);
 		/*PanelIndex.radioG.setBackground(PanelIndex.blueB);
 		PanelIndex.radioYN.setBackground(PanelIndex.blueB);
 		PanelIndex.radioTextB.setBackground(PanelIndex.blueB);
 		PanelIndex.radioTextD.setBackground(PanelIndex.blueB);*/
 		//RadioText adding stuff
-		PanelIndex.radioTextA.add(PanelIndex.yesA);
-		PanelIndex.radioTextA.add(PanelIndex.noA);
-		PanelIndex.ynA.add(PanelIndex.yesA);
-		PanelIndex.ynA.add(PanelIndex.noA);
-		PanelIndex.yesA.setActionCommand("yes");
-		PanelIndex.noA.setActionCommand("no");
+		PanelIndex.radioTextA.add(PanelIndex.preexC);
 		PanelIndex.radioTextA.add(PanelIndex.preex);
 		
-		PanelIndex.radioTextB.add(PanelIndex.yesB);
-		PanelIndex.radioTextB.add(PanelIndex.noB);
-		PanelIndex.ynB.add(PanelIndex.yesB);
-		PanelIndex.ynB.add(PanelIndex.noB);
+		PanelIndex.radioTextB.add(PanelIndex.histC);		
 		PanelIndex.radioTextB.add(PanelIndex.hist);
-		PanelIndex.radioYN.add(PanelIndex.yesP);
-		PanelIndex.radioYN.add(PanelIndex.noP);
-		PanelIndex.radioYN.add(PanelIndex.idk);
-		PanelIndex.ynP.add(PanelIndex.yesP);
-		PanelIndex.ynP.add(PanelIndex.noP);
-		PanelIndex.ynP.add(PanelIndex.idk);
-		PanelIndex.radioG.add(PanelIndex.male);
-		PanelIndex.radioG.add(PanelIndex.female);
-		PanelIndex.genderB.add(PanelIndex.male);
-		PanelIndex.genderB.add(PanelIndex.female);
-		PanelIndex.radioTextC.add(PanelIndex.yesC);
-		PanelIndex.radioTextC.add(PanelIndex.noC);
+		
+		PanelIndex.radioYN.add(PanelIndex.prC);
+	
+		PanelIndex.radioTextC.add(PanelIndex.medC);
 		PanelIndex.radioTextC.add(PanelIndex.currMed);
-		PanelIndex.radioTextD.add(PanelIndex.yesAl);
-		PanelIndex.radioTextD.add(PanelIndex.noAl);
+		PanelIndex.radioTextD.add(PanelIndex.alC);
 		PanelIndex.radioTextD.add(PanelIndex.allergies);
-		//Set ActionCommands
-		PanelIndex.yesA.setActionCommand("Yes");
-		PanelIndex.noA.setActionCommand("No");
-		PanelIndex.yesB.setActionCommand("Yes");
-		PanelIndex.noB.setActionCommand("No");
-		PanelIndex.yesP.setActionCommand("Yes");
-		PanelIndex.noP.setActionCommand("No");
-		PanelIndex.idk.setActionCommand("I don't know");
-		PanelIndex.male.setActionCommand("Male");
-		PanelIndex.female.setActionCommand("Female");
 		//PanelIndex.two.add(PanelIndex.st);
 		//PanelIndex.two.add(PanelIndex.a);
 		//Add labels and buttons and such
@@ -165,7 +131,6 @@ public class GUI {
 					counter++;
 					Processing.gatherBase(x);
 					Processing.switchToCat();
-					FileWriter.writeFile();
 				}
 				else{
 					PanelIndex.baseInfo.add(PanelIndex.blankField);

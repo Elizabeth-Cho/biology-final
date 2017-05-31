@@ -7,6 +7,20 @@ import javax.swing.*;
 import images.*;
 
 public class PanelIndex {
+	//Arrays
+	public static String[] ynPr = {"", "Yes", "No", "Not sure"};
+	public static String[] ynPreex = {"", "Yes", "No"};
+	public static String[] ynHist = {"", "Yes", "No"};
+	public static String[] ynMed = {"", "Yes", "No"};
+	public static String[] ynAlA = {"", "Yes", "No"};
+	public static String[] ynVisit = {"", "Yes", "No"};
+	//JComboBox
+	public static JComboBox prC = new JComboBox(ynPr);
+	public static JComboBox preexC = new JComboBox(ynPreex);
+	public static JComboBox histC = new JComboBox(ynHist);
+	public static JComboBox medC = new JComboBox(ynMed);
+	public static JComboBox alC = new JComboBox(ynAlA);
+	public static JComboBox visitC = new JComboBox(ynVisit);
 	//Image
 	public static ImageIcon backI = createImageIcon("blueLights.jpg");
 	public static ImageIcon time = createImageIcon("questions/duration.jpg");
@@ -15,6 +29,7 @@ public class PanelIndex {
 	public static ImageIcon rateI = createImageIcon("questions/rate.jpg");
 	public static ImageIcon locationI = createImageIcon("questions/location.jpg");
 	public static ImageIcon endI = createImageIcon("questions/endScreen.jpg");
+	public static ImageIcon icon = createImageIcon("icon.png");
 	//Label for images
 	public static JLabel timeL = new JLabel(time);
 	public static JLabel backL = new JLabel(backI);
@@ -28,9 +43,6 @@ public class PanelIndex {
 	public static JLabel blankB = new JLabel();
 	public static JLabel blankC = new JLabel();
 	public static JLabel place = new JLabel("pictures are supposed to be here");
-	public static JLabel nameL = new JLabel("Name: (Last name, first name)");
-	public static JLabel genderL = new JLabel("Biological gender: ");
-	public static JLabel ageL = new JLabel("Date of birth: (MM/DD/YYYY) ");
 	public static JLabel pregnancyL = new JLabel("Are you currently pregnant?");
 	public static JLabel visit = 
 			new JLabel("<html><p>Have you been here in the past week?</p></html>");
@@ -48,11 +60,6 @@ public class PanelIndex {
 			new JLabel("<html><p>Do you have any allergies? (If yes, please list)</p></html>");
 	//Others
 	public static JFormattedTextField ageF = new JFormattedTextField();
-	public static ButtonGroup ynA = new ButtonGroup();
-	public static ButtonGroup ynB = new ButtonGroup();
-	public static ButtonGroup ynP = new ButtonGroup();
-	public static ButtonGroup genderB = new ButtonGroup();
-	public static ButtonGroup ynAl = new ButtonGroup();
 	public static ButtonGroup oneToTenA = new ButtonGroup();	//Baymax
 	public static ButtonGroup oneToTenB = new ButtonGroup();
 	public static ButtonGroup oneToTenC = new ButtonGroup();
@@ -62,19 +69,6 @@ public class PanelIndex {
 	public static JTextField currMed = new JTextField();
 	public static JTextField age = new JTextField(3);
 	public static JTextField allergies = new JTextField();
-	public static JRadioButton yesA = new JRadioButton("Yes");
-	public static JRadioButton noA = new JRadioButton("No");
-	public static JRadioButton yesB = new JRadioButton("Yes");
-	public static JRadioButton noB = new JRadioButton("No");
-	public static JRadioButton yesP = new JRadioButton("Yes");
-	public static JRadioButton noP = new JRadioButton("No");
-	public static JRadioButton idk = new JRadioButton("Not sure");
-	public static JRadioButton male = new JRadioButton("Male");
-	public static JRadioButton female = new JRadioButton("Female");
-	public static JRadioButton yesC = new JRadioButton("Yes");
-	public static JRadioButton noC = new JRadioButton("No");
-	public static JRadioButton yesAl = new JRadioButton("Yes");
-	public static JRadioButton noAl = new JRadioButton("No");
 	public static Color blueA = new Color(147, 218, 236);
 	public static Color blueB = new Color(97, 218, 236);
 	//Panel

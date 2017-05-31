@@ -19,6 +19,7 @@ public class PersonalPI {
 	public static JComboBox empC = new JComboBox(emp);
 	public static JComboBox covTypeC = new JComboBox(covType);
 	public static JComboBox relC = new JComboBox(rel);
+	public static JComboBox genC = new JComboBox(gender);
 	
 	public static JTextField fN = new JTextField();
 	public static JTextField mN = new JTextField();
@@ -27,6 +28,7 @@ public class PersonalPI {
 	public static JTextField dob = new JTextField();
 	public static JTextField name = new JTextField();
 	public static JTextField number = new JTextField();
+	public static JTextField email = new JTextField();
 	public static JTextField eName = new JTextField();
 	public static JTextField eNumber = new JTextField();
 	public static JTextField insProv = new JTextField();
@@ -45,8 +47,11 @@ public class PersonalPI {
 	public static JLabel insIDL = new JLabel("Member ID");
 	public static JLabel raceL = new JLabel("Race");
 	public static JLabel empL = new JLabel("Employer");
+	public static JLabel occL = new JLabel("Occupation");
+	public static JLabel empAddL = new JLabel("Employer address");
 	public static JLabel covTypeL = new JLabel("Type of Coverage");
 	public static JLabel relL = new JLabel("Relation to holder");
+	public static JLabel genL = new JLabel("Gender");
 	
 	public static JLabel nameA = new JLabel();
 	public static JLabel nameB = new JLabel();

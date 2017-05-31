@@ -1,9 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 
-import index.ArrayListIndex;
-import index.PanelIndex;
-import index.RateIndex;
+import index.*;;
 
 public class Processing {
 	private Signal sig;
@@ -29,14 +27,67 @@ public class Processing {
 	
 	public static void infoPanel(){
 		PanelIndex.personalInfo.setLayout(new GridLayout(9, 1));
+		PanelIndex.personalInfo.add(PersonalPI.nameP);
+		PanelIndex.personalInfo.add(PersonalPI.birthP);
+		PanelIndex.personalInfo.add(PersonalPI.addrP);
+		PanelIndex.personalInfo.add(PersonalPI.contactP);
+		PanelIndex.personalInfo.add(PersonalPI.eConP);
+		PanelIndex.personalInfo.add(PersonalPI.insInputP);
+		PanelIndex.personalInfo.add(PersonalPI.insComboP);
 		
-	}
-	public static void recentPanel(){
+		PersonalPI.nameP.setLayout(new GridLayout(2, 3));
+		PersonalPI.addrP.setLayout(new GridLayout(2, 1));
+		PersonalPI.contactP.setLayout(new GridLayout(2, 2));
+		PersonalPI.birthP.setLayout(new GridLayout(2, 2));
+		PersonalPI.eConP.setLayout(new GridLayout(2, 2));
+		PersonalPI.insInputP.setLayout(new GridLayout(2, 2));
+		PersonalPI.insComboP.setLayout(new GridLayout(2, 2));
 		
+		PersonalPI.nameP.add(PersonalPI.fNL);
+		PersonalPI.nameP.add(PersonalPI.mNL);
+		PersonalPI.nameP.add(PersonalPI.lNL);
+		PersonalPI.nameP.add(PersonalPI.fN);
+		PersonalPI.nameP.add(PersonalPI.mN);
+		PersonalPI.nameP.add(PersonalPI.lN);
+		PersonalPI.addrP.add(PersonalPI.addrL);
+		PersonalPI.addrP.add(PersonalPI.addr);
+		PersonalPI.contactP.add(PersonalPI.emailL);
+		PersonalPI.contactP.add(PersonalPI.numL);
+		PersonalPI.contactP.add(PersonalPI.email);
+		PersonalPI.contactP.add(PersonalPI.number);
+		PersonalPI.birthP.add(PersonalPI.birthL);
+		PersonalPI.birthP.add(PersonalPI.genL);
+		PersonalPI.birthP.add(PersonalPI.dob);
+		PersonalPI.birthP.add(PersonalPI.genC);
+		PersonalPI.eConP.add(PersonalPI.eNameL);
+		PersonalPI.eConP.add(PersonalPI.eNumL);
+		PersonalPI.eConP.add(PersonalPI.eName);
+		PersonalPI.eConP.add(PersonalPI.eNumber);
+		PersonalPI.insInputP.add(PersonalPI.insProvL);
+		PersonalPI.insInputP.add(PersonalPI.insIDL);
+		PersonalPI.insInputP.add(PersonalPI.insProv);
+		PersonalPI.insInputP.add(PersonalPI.insID);
+		PersonalPI.insComboP.add(PersonalPI.covTypeL);
+		PersonalPI.insComboP.add(PersonalPI.relL);
+		PersonalPI.insComboP.add(PersonalPI.covTypeC);
+		PersonalPI.insComboP.add(PersonalPI.relC);
 	}
 	public static boolean checkBase(Object x){
-		if(PanelIndex.nameI.getText().equals("") ||
-				PanelIndex.age.getText().equals("")){
+		String alStr;
+		String preexStr;
+		String histStr;
+		String medStr;
+		if(PersonalPI.fN.getText().equals("")||
+				PersonalPI.mN.getText().equals("")||
+				PersonalPI.lN.getText().equals("")||
+				PersonalPI.dob.getText().equals("")||
+				PersonalPI.addr.getText().equals("")||
+				PersonalPI.email.getText().equals("")||
+				PersonalPI.number.getText().equals("")||
+				PersonalPI.eName.getText().equals("")||
+				PersonalPI.eNumber.getText().equals("")||
+				PersonalPI.insProv.getText().equals("")||
+				PersonalPI.insID.getText().equals("")){
 			//PanelIndex.baseInfo.add(PanelIndex.blankField);
 			//System.out.println("checkBase");
 			//GUI.counter--;

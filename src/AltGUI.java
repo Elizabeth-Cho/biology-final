@@ -21,11 +21,11 @@ public class AltGUI {
 		PanelIndex.radioTextD.setLayout(new GridLayout(3, 1, 10, 5));
 		PanelIndex.radioYN.setLayout(new GridLayout(3, 1, 10, 5));
 		PanelIndex.radioG.setLayout(new GridLayout(2, 1, 10, 5));
-		PanelIndex.startInfo.add(PanelIndex.nameL);
+		//PanelIndex.startInfo.add(PanelIndex.nameL);
 		PanelIndex.startInfo.add(PanelIndex.nameI);
-		PanelIndex.startInfo.add(PanelIndex.genderL);
+		//PanelIndex.startInfo.add(PanelIndex.genderL);
 		PanelIndex.startInfo.add(PanelIndex.radioG);
-		PanelIndex.startInfo.add(PanelIndex.ageL);
+		//PanelIndex.startInfo.add(PanelIndex.ageL);
 		PanelIndex.startInfo.add(PanelIndex.pregnancyL);
 		PanelIndex.startInfo.add(PanelIndex.radioYN);
 		PanelIndex.startInfo.add(PanelIndex.preexisting);
