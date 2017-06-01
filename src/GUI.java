@@ -112,7 +112,7 @@ public class GUI {
 			if(x == PanelIndex.next){
 				if(Processing.checkBase(x)){
 					counter++;
-					//Processing.transferInfo();
+					Processing.transferInfo();
 					Processing.switchToCat();
 				}
 				else{
@@ -159,7 +159,7 @@ public class GUI {
 				Processing.pathALevelThree();
 			}
 			else if(x == PanelIndex.nextB) {
-				Processing.endScreen();
+				Processing.endScreen(x);
 			}
 			String result = "";
 			 		
