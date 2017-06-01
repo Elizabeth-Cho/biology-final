@@ -97,7 +97,10 @@ public class GUI {
 		PanelIndex.joint.addActionListener(new Listener());
 		PanelIndex.muscles.addActionListener(new Listener());
 		PanelIndex.bones.addActionListener(new Listener());
+		PanelIndex.nextA.addActionListener(new Listener());
 		PanelIndex.nextB.addActionListener(new Listener());
+		PanelIndex.nextC.addActionListener(new Listener());
+		PanelIndex.nextD.addActionListener(new Listener());
 		//Set visible
 		frame.setVisible(true);
 		
@@ -158,7 +161,22 @@ public class GUI {
 					x == PanelIndex.muscles || x == PanelIndex.bones) {
 				Processing.pathALevelThree();
 			}
-			else if(x == PanelIndex.nextB) {
+			else if(x == PanelIndex.nextA) {
+				if(Processing.loopThrough(ArrayListIndex.pathARate) == null){
+					new PopupGUI();
+				}
+				Processing.endScreen(x);
+			}
+			else if(x == PanelIndex.nextB){
+				if(Processing.loopThrough(ArrayListIndex.pathBRate) == null){
+					new PopupGUI();
+				}
+				Processing.endScreen(x);
+			}
+			else if(x == PanelIndex.nextC){
+				if(Processing.loopThrough(ArrayListIndex.pathCRate) == null){
+					new PopupGUI();
+				}
 				Processing.endScreen(x);
 			}
 			String result = "";

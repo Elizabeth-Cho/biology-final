@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 
 import index.*;;
@@ -258,7 +260,7 @@ public class Processing {
 		PanelIndex.rateP.add(PanelIndex.blankA);
 		PanelIndex.rateP.add(PanelIndex.rate);
 		PanelIndex.rateP.add(PanelIndex.blankB);
-		PanelIndex.rateP.add(PanelIndex.nextB);
+		PanelIndex.rateP.add(PanelIndex.nextA);
 		PanelIndex.rate.setLayout(new GridLayout(1, 10, 5, 10));
 		RateIndex.fillC(ArrayListIndex.pathARate);
 		for(int i = 0; i < ArrayListIndex.pathARate.size(); i++) {
@@ -355,20 +357,12 @@ public class Processing {
 	public static void switchToD(){
 		switchCat();
 		resetPanels();
-		PanelIndex.question.add(PanelIndex.wotDoL);
+		PanelIndex.question.add(PanelIndex.incidentL);
 		PanelIndex.two.add(PanelIndex.pathDQ);
 		PanelIndex.pathDQ.setLayout(new GridLayout(2, 2));
-		
 		//Add responses
 	}
-	
 	public static void pathDLevelTwo(){
-		PanelIndex.question.remove(PanelIndex.wotDoL);
-		PanelIndex.two.remove(PanelIndex.pathDQ);
-		resetPanels();
-		//Man what did you do
-	}
-	public static void pathDLevelThree(){
 		resetPanels();
 		PanelIndex.question.add(PanelIndex.timeL);
 		PanelIndex.two.add(PanelIndex.duration);
@@ -426,19 +420,30 @@ public class Processing {
 		PanelIndex.question.remove(PanelIndex.reasonL);
 		PanelIndex.two.remove(PanelIndex.multResponses);
 	}
-	public static void endScreen(){
-		GUI.frame.remove(PanelIndex.two);
+	public static void endScreen(Object x){
+		if(x == PanelIndex.nextA||x == PanelIndex.nextB ||
+				x == PanelIndex.nextC){
+			PanelIndex.question.remove(PanelIndex.rateL);
+		}
+		else if(x == PanelIndex.nextD){
+			PanelIndex.question.remove(PanelIndex.timeL);
+		}
 		resetPanels();
-		GUI.frame.add(PanelIndex.endTwo);
-		PanelIndex.endTwo.setLayout(new GridLayout(2, 1));
-		//PanelIndex.endTwo.add(PanelIndex.endP);
-		PanelIndex.endTwo.add(PanelIndex.endL);
+		PanelIndex.question.add(PanelIndex.endL);
 		PanelIndex.endTwo.setBackground(PanelIndex.blueA);
 	}
-	public static void loopThrough(){
+	public static JRadioButton loopThrough(ArrayList<JRadioButton> al){
+		JRadioButton select;
 		while(!selected){
-			
+			for(int i = 0; i < al.size(); i++){
+				select = al.get(i);
+				if(select.isSelected()){
+					selected = true;
+					return select;
+				}
+			}
 		}
+		return null;
 	}
 	public static void getRec(){
 		

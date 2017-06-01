@@ -18,6 +18,8 @@ public class FileWriter {
 			}
 			PrintWriter writer= new PrintWriter(path, "UTF-8");
 			writer.println("Name: "+ UserInfo.lN + ", " + UserInfo.fN + " " +UserInfo.mN);
+			writer.println("Reason for visit: ");
+			writer.println();
 			writer.close();
 		}
 		catch(IOException e){
