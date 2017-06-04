@@ -7,6 +7,20 @@ public class FileWriter {
 	private static File file;
 	private static String path = "c:\\Users\\zergl\\workspace\\biology-final\\src\\files\\" + fileName;
 	
+	public static void sortFile(){
+		if(UserInfo.reason.equals("Pain")){
+			path += fileName;
+		}
+		else if(UserInfo.reason.equals("Illness")){
+			
+		}
+		else if(UserInfo.reason.equals("Accident")){
+			
+		}
+		else if(UserInfo.reason.equals("Other")){
+			
+		}
+	}
 	public static void writeFile(){
 		try {
 			file = new File(path);
@@ -85,7 +99,23 @@ public class FileWriter {
 			}
 			writer.println("Pregnant: " + UserInfo.prYN);
 			writer.println();
-			writer.println("Reason for visit: ");
+			writer.println("Visit Details");
+			writer.println("----------");
+			writer.println("Reason for visit: " + UserInfo.reason);
+			if(UserInfo.reason.equals("Pain")){
+				writer.println();
+			}
+			else if(UserInfo.reason.equals("Illness")){
+				
+			}
+			else if(UserInfo.reason.equals("Accident")){
+				
+			}
+			else if(UserInfo.reason.equals("Other")){
+				
+			}
+			writer.println();
+			writer.println("Reccommended procedures and specialists: ");
 			writer.close();
 		}
 		catch(IOException e){

@@ -36,5 +36,18 @@ public class UserInfo {
 	public static String prYN = "";
 	public static String reason = "";
 	public static ArrayList<String> symptoms = new ArrayList<String>();
-	
+	//Path A
+	public static String durationA = "";
+	public static String locationA = "";
+	public static String rateA = "";
+	//Path B
+	public static String durationB = "";
+	public static String locationB = "";
+	public static String rateB = "";
+	//Path C
+	public static String locationC = "";
+	public static String rateC = "";
+	//Path D
+	public static String incidentD = "";
+	public static String durationD = "";
 }

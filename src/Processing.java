@@ -7,18 +7,10 @@ import index.*;;
 
 public class Processing {
 	private Signal sig;
-	private static String fN, mN, lN;
-	private static String gender;
-	private static String birth;
-	private static String pregnant;
-	private static String prevVisit;
-	private static String med;
-	private static String hist;
-	private static String allergies;
 	public static String category;
-	public static String reason = "";
-	public static String duration = "";
+	public static String format = "";
 	private static boolean selected = false;
+	public static String duration;
 	private String[] ynA = {"yesA", "noA"};
 	private String[] ynB = {"yesB", "noB"};
 	
@@ -144,7 +136,7 @@ public class Processing {
 		PanelIndex.wrapperNext.setLayout(new GridLayout(1, 2));
 		PanelIndex.wrapperNext.add(PanelIndex.next);
 	}
-	public static boolean checkBase(Object x){
+	public static boolean checkBase(){
 		String alStr = PanelIndex.alC.getSelectedItem().toString();
 		String preexStr = PanelIndex.preexC.getSelectedItem().toString();
 		String histStr = PanelIndex.histC.getSelectedItem().toString();
@@ -198,9 +190,23 @@ public class Processing {
 			return true;
 		}	
 	}
-	
-	public static void checkFormat(){
+
+	public static boolean checkFormat(){
+		format = "";
+		if(!PersonalPI.email.getText().contains("@") ||
+				!PersonalPI.dob.getText().substring(2, 3).equals("/")||
+				!PersonalPI.dob.getText().substring(5, 6).equals("/")){
+			if(!PersonalPI.email.getText().contains("@")){
+				format += "email";
+			}
+			if(!PersonalPI.dob.getText().substring(2, 3).equals("/")||
+				!PersonalPI.dob.getText().substring(5, 6).equals("/")){
+				format += "dob";
+			}	
+			return false;
+		}
 		
+		return true;
 	}
 	public static void switchToCat(){
 		GUI.frame.remove(PanelIndex.baseInfo);
@@ -278,11 +284,11 @@ public class Processing {
 		PanelIndex.question.add(PanelIndex.timeL);
 		//Replace question
 		PanelIndex.duration.setLayout(new GridLayout(5, 1));
-		PanelIndex.duration.add(PanelIndex.lessWeek);
-		PanelIndex.duration.add(PanelIndex.oneTwoWeek);
-		PanelIndex.duration.add(PanelIndex.twoThreeWeek);
-		PanelIndex.duration.add(PanelIndex.threeFourWeek);
-		PanelIndex.duration.add(PanelIndex.moreThanMonth);
+		PanelIndex.duration.add(PanelIndex.lessDay);
+		PanelIndex.duration.add(PanelIndex.twoThreeDay);
+		PanelIndex.duration.add(PanelIndex.fourFiveDay);
+		PanelIndex.duration.add(PanelIndex.sixSevenDay);
+		PanelIndex.duration.add(PanelIndex.moreThanWeek);
 	}
 	
 	public static void pathBLevelTwo(){
@@ -406,6 +412,7 @@ public class Processing {
 		UserInfo.empNum = PersonalPI.empNum.getText();
 		UserInfo.pcName = PersonalPI.pcName.getText();
 		UserInfo.pcAddr = PersonalPI.pcAddr.getText();
+		UserInfo.pcNum = PersonalPI.pcNum.getText();
 		UserInfo.alYN = PanelIndex.alC.getSelectedItem().toString();
 		UserInfo.medYN = PanelIndex.medC.getSelectedItem().toString();
 		UserInfo.histYN = PanelIndex.histC.getSelectedItem().toString();

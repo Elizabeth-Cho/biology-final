@@ -135,6 +135,11 @@ public class PanelIndex {
 	public static JButton twoThreeWeek = new JButton("Two to three weeks");
 	public static JButton threeFourWeek = new JButton("Three to four weeks");
 	public static JButton moreThanMonth = new JButton("More than a month");
+	public static JButton lessDay = new JButton("Less than a day");
+	public static JButton twoThreeDay = new JButton("Two to three days");
+	public static JButton fourFiveDay = new JButton("Four to five days");
+	public static JButton sixSevenDay = new JButton("Six to seven days");
+	public static JButton moreThanWeek = new JButton("More than a week");
 	public static JButton head = new JButton("Head");
 	public static JButton neck = new JButton("Neck");
 	public static JButton chest = new JButton("Chest");

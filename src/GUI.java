@@ -14,7 +14,7 @@ public class GUI {
 	public GUI() {
 		counter = 0;
 		//Set frames
-		frame = new JFrame("Final project"); //Rename
+		frame = new JFrame("Information Medical Data Collection (iMDC)"); //Rename
 		frame.setSize(800, 600);
 		frame.setLayout(new GridLayout(1, 2, 5, 5));
 		//Add panels
@@ -101,6 +101,11 @@ public class GUI {
 		PanelIndex.nextB.addActionListener(new Listener());
 		PanelIndex.nextC.addActionListener(new Listener());
 		PanelIndex.nextD.addActionListener(new Listener());
+		PanelIndex.lessDay.addActionListener(new Listener());
+		PanelIndex.twoThreeDay.addActionListener(new Listener());
+		PanelIndex.fourFiveDay.addActionListener(new Listener());
+		PanelIndex.sixSevenDay.addActionListener(new Listener());
+		PanelIndex.moreThanWeek.addActionListener(new Listener());
 		//Set visible
 		frame.setVisible(true);
 		
@@ -113,16 +118,18 @@ public class GUI {
 			//Remove, revalidate, repaint, add
 			Object x = e.getSource();
 			if(x == PanelIndex.next){
-				if(Processing.checkBase(x)){
-					counter++;
-					Processing.transferInfo();
-					Processing.switchToCat();
+				System.out.println();
+				if(Processing.checkBase()){
+					if(Processing.checkFormat()){
+						Processing.transferInfo();
+						Processing.switchToCat();
+					}
+					else{
+						new PopupGUI(Processing.format);
+					}
 				}
 				else{
-					PanelIndex.wrapperNext.add(PanelIndex.blankField);
-					PanelIndex.baseInfo.revalidate();
-					PanelIndex.baseInfo.repaint();
-					new PopupGUI();
+					new PopupGUI("blank");
 				}
 				/*System.out.println(counter);
 				PanelIndex.recentInfo.add(PanelIndex.blankField);
@@ -151,8 +158,7 @@ public class GUI {
 					x == PanelIndex.twoThreeWeek || x == PanelIndex.threeFourWeek ||
 					x == PanelIndex.moreThanMonth){
 				Processing.pathALevelTwo();
-				Processing.duration = ((JButton)x).getName();
-				System.out.println(((JButton)x).getName());
+				UserInfo.durationA = ((JButton)x).getText();
 			}
 			else if(x == PanelIndex.head || x == PanelIndex.neck ||
 					x == PanelIndex.chest || x == PanelIndex.stomach ||
@@ -160,25 +166,30 @@ public class GUI {
 					x == PanelIndex.back || x == PanelIndex.joint ||
 					x == PanelIndex.muscles || x == PanelIndex.bones) {
 				Processing.pathALevelThree();
+				UserInfo.locationA = ((JButton)x).getText();
 			}
 			else if(x == PanelIndex.nextA) {
-				if(Processing.loopThrough(ArrayListIndex.pathARate) == null){
-					new PopupGUI();
+				JRadioButton selected = Processing.loopThrough(ArrayListIndex.pathARate);
+				if(selected == null){
+					new PopupGUI("blank");
 				}
+				System.out.println(selected.getText());
 				Processing.endScreen(x);
 				FileWriter.writeFile();
 			}
 			else if(x == PanelIndex.nextB){
 				if(Processing.loopThrough(ArrayListIndex.pathBRate) == null){
-					new PopupGUI();
+					new PopupGUI("blank");
 				}
 				Processing.endScreen(x);
+				FileWriter.writeFile();
 			}
 			else if(x == PanelIndex.nextC){
 				if(Processing.loopThrough(ArrayListIndex.pathCRate) == null){
-					new PopupGUI();
+					new PopupGUI("blank");
 				}
 				Processing.endScreen(x);
+				FileWriter.writeFile();
 			}
 			String result = "";
 			 		
