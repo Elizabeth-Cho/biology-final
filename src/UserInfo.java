@@ -12,6 +12,7 @@ public class UserInfo {
 	public static String num = "";
 	public static String eName = "";
 	public static String eNum = "";
+	public static String eRel = "";
 	public static String insP = "";
 	public static String insH = "";
 	public static String insID = "";
@@ -33,6 +34,7 @@ public class UserInfo {
 	public static String histYN = "";
 	public static String hist = "";
 	public static String prYN = "";
+	public static String reason = "";
 	public static ArrayList<String> symptoms = new ArrayList<String>();
 	
 }

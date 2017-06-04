@@ -34,6 +34,7 @@ public class PanelIndex {
 	public static ImageIcon accidentI = createImageIcon("questions/accident.jpg");
 	public static ImageIcon symptomIm = createImageIcon("questions/symptoms.jpg");
 	public static ImageIcon incidentI = createImageIcon("questions/incident.jpg");
+	public static ImageIcon side = createImageIcon("sidepanel.png");
 	//Label for images
 	public static JLabel timeL = new JLabel(time);
 	public static JLabel backL = new JLabel(backI);
@@ -45,6 +46,7 @@ public class PanelIndex {
 	public static JLabel accL = new JLabel(accidentI);
 	public static JLabel sympL = new JLabel(symptomIm);
 	public static JLabel incidentL = new JLabel(incidentI);
+	public static JLabel sideL = new JLabel(side);
 	//Just images
 	public static JLabel blankA = new JLabel();
 	public static JLabel blankB = new JLabel();
@@ -122,11 +124,12 @@ public class PanelIndex {
 	public static JButton pathB = new JButton("Illness");	//Illness
 	public static JButton pathC = new JButton("Accident");	//Accidents
 	public static JButton pathD = new JButton("Other");		//Other
-	public static JButton next = new JButton("Next");	//For base info
-	public static JButton nextA = new JButton("NextA");	//For rate 1-10 (path A)
-	public static JButton nextB = new JButton("NextB");	//Path B
-	public static JButton nextC = new JButton("NextC");	//Path C
-	public static JButton nextD = new JButton("NextD");	//Path D
+	public static JButton next = new JButton("Next");		//For base info
+	public static JButton nextA = new JButton("NextA");		//For rate 1-10 (path A)
+	public static JButton nextB = new JButton("NextB");		//Path B
+	public static JButton nextC = new JButton("NextC");		//Path C
+	public static JButton nextD = new JButton("NextD");		//Path D
+	public static JButton nextSymp = new JButton("Next");	//Symptoms
 	public static JButton lessWeek = new JButton("Less than a week");
 	public static JButton oneTwoWeek = new JButton("One to two weeks");
 	public static JButton twoThreeWeek = new JButton("Two to three weeks");
@@ -153,7 +156,7 @@ public class PanelIndex {
 	public static JCheckBox symptomE = new JCheckBox("Stomach pain");
 	public static JCheckBox symptomF = new JCheckBox("Dehydration");
 	public static JCheckBox symptomG = new JCheckBox("Incoherence");
-	public static JCheckBox symptomH = new JCheckBox();
+	public static JCheckBox symptomH = new JCheckBox("Fatigue");
 	public static JCheckBox symptomI = new JCheckBox();
 	public static JCheckBox symptomJ = new JCheckBox();
 	//Testing purposes

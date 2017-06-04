@@ -31,6 +31,7 @@ public class PersonalPI {
 	public static JTextField email = new JTextField();
 	public static JTextField eName = new JTextField();
 	public static JTextField eNumber = new JTextField();
+	public static JTextField eRel = new JTextField();
 	public static JTextField insProv = new JTextField();
 	public static JTextField insID = new JTextField();
 	public static JTextField insHold = new JTextField();
@@ -51,6 +52,7 @@ public class PersonalPI {
 	public static JLabel birthL = new JLabel("Birthday (MM/DD/YYYY)");
 	public static JLabel eNameL = new JLabel("Name of emergency contact");
 	public static JLabel eNumL = new JLabel("Phone number of emergency contact");
+	public static JLabel eRelL = new JLabel("Relation to patient");
 	public static JLabel insProvL = new JLabel("Insurance Provider");
 	public static JLabel insIDL = new JLabel("Member ID");
 	public static JLabel raceL = new JLabel("Race");

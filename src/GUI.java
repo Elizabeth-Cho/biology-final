@@ -25,7 +25,7 @@ public class GUI {
 		//frame.add(PanelIndex.two);
 		Processing.infoPanel();
 		Processing.basePanel();
-		PanelIndex.progress.add(PanelIndex.backL);
+		PanelIndex.progress.add(PanelIndex.sideL);
 		PanelIndex.two.setLayout(new GridLayout(2, 1));
 		//PanelIndex.two.add(PanelIndex.baseInfo);
 		//PanelIndex.two.add(PanelIndex.recentInfo);
@@ -133,19 +133,19 @@ public class GUI {
 			}
 			else if(x == PanelIndex.pathA){
 				Processing.switchToA();
-				Processing.reason = "Pain";
+				UserInfo.reason = "Pain";
 			}
 			else if(x == PanelIndex.pathB){
 				Processing.switchToB();
-				Processing.reason = "Illness";
+				UserInfo.reason = "Illness";
 			}
 			else if(x == PanelIndex.pathC){
 				Processing.switchToC();
-				Processing.reason = "Accident";
+				UserInfo.reason = "Accident";
 			}
 			else if(x == PanelIndex.pathD){
 				Processing.switchToD();
-				Processing.reason = "Other";
+				UserInfo.reason = "Other";
 			}
 			else if(x == PanelIndex.lessWeek || x == PanelIndex.oneTwoWeek ||
 					x == PanelIndex.twoThreeWeek || x == PanelIndex.threeFourWeek ||
@@ -166,6 +166,7 @@ public class GUI {
 					new PopupGUI();
 				}
 				Processing.endScreen(x);
+				FileWriter.writeFile();
 			}
 			else if(x == PanelIndex.nextB){
 				if(Processing.loopThrough(ArrayListIndex.pathBRate) == null){

@@ -43,7 +43,7 @@ public class Processing {
 		PersonalPI.addrP.setLayout(new GridLayout(2, 1));
 		PersonalPI.contactP.setLayout(new GridLayout(2, 2));
 		PersonalPI.birthP.setLayout(new GridLayout(2, 3));
-		PersonalPI.eConP.setLayout(new GridLayout(2, 2));
+		PersonalPI.eConP.setLayout(new GridLayout(2, 3));
 		PersonalPI.insInputP.setLayout(new GridLayout(2, 3));
 		PersonalPI.insComboP.setLayout(new GridLayout(2, 2));
 		PersonalPI.empPA.setLayout(new GridLayout(2, 2));
@@ -69,8 +69,10 @@ public class Processing {
 		PersonalPI.birthP.add(PersonalPI.raceC);
 		PersonalPI.eConP.add(PersonalPI.eNameL);
 		PersonalPI.eConP.add(PersonalPI.eNumL);
+		PersonalPI.eConP.add(PersonalPI.eRelL);
 		PersonalPI.eConP.add(PersonalPI.eName);
 		PersonalPI.eConP.add(PersonalPI.eNumber);
+		PersonalPI.eConP.add(PersonalPI.eRel);
 		PersonalPI.insInputP.add(PersonalPI.insProvL);
 		PersonalPI.insInputP.add(PersonalPI.insHoldL);
 		PersonalPI.insInputP.add(PersonalPI.insIDL);
@@ -298,7 +300,18 @@ public class Processing {
 		resetPanels();
 		PanelIndex.question.add(PanelIndex.sympL);
 		PanelIndex.two.add(PanelIndex.pathBQ);
-		PanelIndex.pathBQ.setLayout(new GridLayout(7, 1));
+		PanelIndex.pathBQ.setLayout(new GridLayout(11, 1));
+		PanelIndex.pathBQ.add(PanelIndex.symptomA);
+		PanelIndex.pathBQ.add(PanelIndex.symptomB);
+		PanelIndex.pathBQ.add(PanelIndex.symptomC);
+		PanelIndex.pathBQ.add(PanelIndex.symptomD);
+		PanelIndex.pathBQ.add(PanelIndex.symptomE);
+		PanelIndex.pathBQ.add(PanelIndex.symptomF);
+		PanelIndex.pathBQ.add(PanelIndex.symptomG);
+		PanelIndex.pathBQ.add(PanelIndex.symptomH);
+		PanelIndex.pathBQ.add(PanelIndex.symptomI);
+		PanelIndex.pathBQ.add(PanelIndex.symptomJ);
+		PanelIndex.pathBQ.add(PanelIndex.nextSymp);
 	}
 	
 	public static void pathBLevelFour(){
@@ -381,6 +394,7 @@ public class Processing {
 		UserInfo.num = PersonalPI.number.getText();
 		UserInfo.eName = PersonalPI.eName.getText();
 		UserInfo.eNum = PersonalPI.eNumber.getText();
+		UserInfo.eRel = PersonalPI.eRel.getText();
 		UserInfo.insP = PersonalPI.insProv.getText();
 		UserInfo.insH = PersonalPI.insHold.getText();
 		UserInfo.insID = PersonalPI.insID.getText();
@@ -424,6 +438,7 @@ public class Processing {
 		if(x == PanelIndex.nextA||x == PanelIndex.nextB ||
 				x == PanelIndex.nextC){
 			PanelIndex.question.remove(PanelIndex.rateL);
+			PanelIndex.two.remove(PanelIndex.rateP);
 		}
 		else if(x == PanelIndex.nextD){
 			PanelIndex.question.remove(PanelIndex.timeL);
