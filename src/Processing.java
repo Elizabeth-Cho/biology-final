@@ -19,6 +19,23 @@ public class Processing {
 		sig = s;
 	}
 	
+	public static void startPanel(){
+		PanelIndex.begin.setLayout(new BorderLayout());
+		PanelIndex.begin.add(PanelIndex.backL, BorderLayout.CENTER);
+		PanelIndex.begin.add(PanelIndex.start, BorderLayout.PAGE_END);
+	}
+	public static void returnToStart(){
+		GUI.frame.remove(PanelIndex.progress);
+		GUI.frame.remove(PanelIndex.two);
+		resetPanels();
+		GUI.frame.add(PanelIndex.baseInfo);
+		GUI.frame.add(PanelIndex.personalInfo);
+	}
+	public static void afterStart(){
+		GUI.frame.remove(PanelIndex.begin);
+		GUI.frame.revalidate();
+		GUI.frame.repaint();
+	}
 	public static void infoPanel(){
 		PanelIndex.personalInfo.setLayout(new GridLayout(9, 1));
 		PanelIndex.personalInfo.add(PersonalPI.nameP);
@@ -297,7 +314,12 @@ public class Processing {
 		resetPanels();
 		PanelIndex.question.add(PanelIndex.locationL);
 		PanelIndex.two.add(PanelIndex.locationP);
-		//Ask where symptoms are located
+		PanelIndex.locationP.setLayout(new GridLayout(9, 1));
+		RateIndex.fillSympL(ArrayListIndex.symptLoc);
+		for(int i = 0; i < ArrayListIndex.symptLoc.size(); i++){
+			PanelIndex.locationP.add(ArrayListIndex.symptLoc.get(i));
+		}
+		PanelIndex.locationP.add(PanelIndex.nextSympL);
 	}
 	
 	public static void pathBLevelThree(){
@@ -307,16 +329,10 @@ public class Processing {
 		PanelIndex.question.add(PanelIndex.sympL);
 		PanelIndex.two.add(PanelIndex.pathBQ);
 		PanelIndex.pathBQ.setLayout(new GridLayout(11, 1));
-		PanelIndex.pathBQ.add(PanelIndex.symptomA);
-		PanelIndex.pathBQ.add(PanelIndex.symptomB);
-		PanelIndex.pathBQ.add(PanelIndex.symptomC);
-		PanelIndex.pathBQ.add(PanelIndex.symptomD);
-		PanelIndex.pathBQ.add(PanelIndex.symptomE);
-		PanelIndex.pathBQ.add(PanelIndex.symptomF);
-		PanelIndex.pathBQ.add(PanelIndex.symptomG);
-		PanelIndex.pathBQ.add(PanelIndex.symptomH);
-		PanelIndex.pathBQ.add(PanelIndex.symptomI);
-		PanelIndex.pathBQ.add(PanelIndex.symptomJ);
+		RateIndex.fillSymp(ArrayListIndex.symptoms);
+		for(int i = 0; i < ArrayListIndex.symptoms.size(); i++){
+			PanelIndex.pathBQ.add(ArrayListIndex.symptoms.get(i));
+		}
 		PanelIndex.pathBQ.add(PanelIndex.nextSymp);
 	}
 	
@@ -357,14 +373,24 @@ public class Processing {
 		resetPanels();
 		PanelIndex.question.add(PanelIndex.locationL);
 		PanelIndex.two.add(PanelIndex.locationP);
+		PanelIndex.locationP.setLayout(new GridLayout(9, 1));
+		RateIndex.fillSympL(ArrayListIndex.symptLoc);
+		for(int i = 0; i < ArrayListIndex.symptLoc.size(); i++){
+			PanelIndex.locationP.add(ArrayListIndex.symptLoc.get(i));
+		}
+		PanelIndex.locationP.add(PanelIndex.nextSympC);
 	}
 	
 	public static void pathCLevelThree(){
 		PanelIndex.question.remove(PanelIndex.locationL);
+		PanelIndex.two.remove(PanelIndex.locationP);
 		resetPanels();
-		//Swap picture
-		//Add rate
 		PanelIndex.question.add(PanelIndex.rateL);
+		PanelIndex.two.add(PanelIndex.rateP);
+		PanelIndex.rateP.add(PanelIndex.blankA);
+		PanelIndex.rateP.add(PanelIndex.rate);
+		PanelIndex.rateP.add(PanelIndex.blankB);
+		PanelIndex.rateP.add(PanelIndex.nextC);
 		PanelIndex.rate.setLayout(new GridLayout(10, 1, 5, 10));
 		RateIndex.fillC(ArrayListIndex.pathCRate);
 		for(int i = 0; i < ArrayListIndex.pathCRate.size(); i++) {
@@ -452,7 +478,9 @@ public class Processing {
 		}
 		resetPanels();
 		PanelIndex.question.add(PanelIndex.endL);
-		PanelIndex.endTwo.setBackground(PanelIndex.blueA);
+		PanelIndex.two.add(PanelIndex.lilBaymax);
+		PanelIndex.lilBaymax.setLayout(new BorderLayout());
+		PanelIndex.lilBaymax.add(PanelIndex.baymaxL, BorderLayout.CENTER);
 	}
 	public static JRadioButton loopThrough(ArrayList<JRadioButton> al){
 		JRadioButton select;
@@ -466,6 +494,28 @@ public class Processing {
 			}
 		}
 		return null;
+	}
+	public static void addSymptom(ArrayList<JCheckBox> al){
+		for(int i = 0; i < ArrayListIndex.symptoms.size(); i++){
+			JCheckBox check = ArrayListIndex.symptoms.get(i);
+			if(check.isSelected()){
+				UserInfo.symptoms.add(check.getText());
+			}
+		}
+	}
+	public static boolean checkFilled(ArrayList<JCheckBox> al){
+		JCheckBox select;
+		boolean check = false;
+		while(!check){
+			for(int i = 0; i < al.size(); i++){
+				select = al.get(i);
+				if(select.isSelected()){
+					check = true;
+					return check;
+				}
+			}
+		}
+		return false;
 	}
 	public static void getRec(){
 		

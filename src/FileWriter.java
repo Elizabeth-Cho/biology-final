@@ -2,14 +2,33 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import index.ArrayListIndex;
+
 public class FileWriter {
 	private static String fileName = UserInfo.lN + UserInfo.fN + UserInfo.mN + ".txt";
 	private static File file;
-	private static String path = "c:\\Users\\zergl\\workspace\\biology-final\\src\\files\\" + fileName;
+	private static String path = "c:\\Users\\zergl\\workspace\\biology-final\\src\\files\\";
 	
 	public static void sortFile(){
 		if(UserInfo.reason.equals("Pain")){
-			path += fileName;
+			int rate = Integer.parseInt(UserInfo.rateA);
+			System.out.println(rate + 1);
+			if(rate >= 8){
+				path += "Level 2 [Emergency]\\" + fileName;
+				//8, 9, 10
+			}
+			else if(rate >= 6 && rate < 8){
+				path += "Level 3 [Urgent]\\" + fileName;
+				//6, 7
+			}
+			else if(rate >= 4 && rate < 6){
+				path += "Level 4 [Semi-urgent]\\" + fileName;
+				//4, 5
+			}
+			else if(rate >= 1 && rate < 4){
+				path += "Level 5 [Non-urgent]\\" + fileName;
+				//1, 2, 3
+			}
 		}
 		else if(UserInfo.reason.equals("Illness")){
 			
@@ -103,16 +122,28 @@ public class FileWriter {
 			writer.println("----------");
 			writer.println("Reason for visit: " + UserInfo.reason);
 			if(UserInfo.reason.equals("Pain")){
-				writer.println();
+				writer.println("Duration: " + UserInfo.durationA);
+				writer.println("Location: " + UserInfo.locationA);
+				writer.println("Level of pain: " + UserInfo.rateA);
 			}
 			else if(UserInfo.reason.equals("Illness")){
-				
+				writer.println("Duration: " + UserInfo.durationB);
+				writer.println("Location: " + UserInfo.locationB);
+				writer.println("Symptoms: " + UserInfo.symptoms.get(0) + ", ");
+				for(int i = 1; i < UserInfo.symptoms.size() - 1; i++){
+					String symp = UserInfo.symptoms.get(i);
+					writer.print(symp + ", ");
+				}
+				writer.print(UserInfo.symptoms.get(UserInfo.symptoms.size()-1));
+				writer.println("Level of pain: " + UserInfo.rateB);
 			}
 			else if(UserInfo.reason.equals("Accident")){
-				
+				writer.println("Location: " + UserInfo.locationC);
+				writer.println("Level of pain: " + UserInfo.rateC);
 			}
 			else if(UserInfo.reason.equals("Other")){
-				
+				writer.println("Nature of incident: " + UserInfo.incidentD);
+				writer.println("Duration: " + UserInfo.durationD);
 			}
 			writer.println();
 			writer.println("Reccommended procedures and specialists: ");

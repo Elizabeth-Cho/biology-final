@@ -35,6 +35,7 @@ public class PanelIndex {
 	public static ImageIcon symptomIm = createImageIcon("questions/symptoms.jpg");
 	public static ImageIcon incidentI = createImageIcon("questions/incident.jpg");
 	public static ImageIcon side = createImageIcon("sidepanel.png");
+	public static ImageIcon baymax = createImageIcon("baymax.gif");
 	//Label for images
 	public static JLabel timeL = new JLabel(time);
 	public static JLabel backL = new JLabel(backI);
@@ -47,6 +48,7 @@ public class PanelIndex {
 	public static JLabel sympL = new JLabel(symptomIm);
 	public static JLabel incidentL = new JLabel(incidentI);
 	public static JLabel sideL = new JLabel(side);
+	public static JLabel baymaxL = new JLabel(baymax);
 	//Just images
 	public static JLabel blankA = new JLabel();
 	public static JLabel blankB = new JLabel();
@@ -81,6 +83,7 @@ public class PanelIndex {
 	public static Color blueA = new Color(147, 218, 236);
 	public static Color blueB = new Color(97, 218, 236);
 	//Panel
+	public static JPanel begin = new JPanel();
 	public static JPanel startInfo = new JPanel();
 	public static JPanel spaceA = new JPanel();
 	public static JPanel spaceB = new JPanel();
@@ -110,6 +113,7 @@ public class PanelIndex {
 	public static JPanel locationP = new JPanel();
 	public static JPanel endTwo = new JPanel();
 	public static JPanel endP = new JPanel();
+	public static JPanel lilBaymax = new JPanel();
 	//Wrapping panels
 	public static JPanel wrapperMed = new JPanel();
 	public static JPanel wrapperHist = new JPanel();
@@ -120,6 +124,7 @@ public class PanelIndex {
 	public static JPanel wrapperP = new JPanel();
 	public static JPanel wrapperG = new JPanel();
 	//Buttons
+	public static JButton start = new JButton("Start");
 	public static JButton pathA = new JButton("Pain");		//Pain
 	public static JButton pathB = new JButton("Illness");	//Illness
 	public static JButton pathC = new JButton("Accident");	//Accidents
@@ -130,6 +135,8 @@ public class PanelIndex {
 	public static JButton nextC = new JButton("NextC");		//Path C
 	public static JButton nextD = new JButton("NextD");		//Path D
 	public static JButton nextSymp = new JButton("Next");	//Symptoms
+	public static JButton nextSympL = new JButton("Next");	//Symptom list
+	public static JButton nextSympC = new JButton("Next");
 	public static JButton lessWeek = new JButton("Less than a week");
 	public static JButton oneTwoWeek = new JButton("One to two weeks");
 	public static JButton twoThreeWeek = new JButton("Two to three weeks");
@@ -162,8 +169,17 @@ public class PanelIndex {
 	public static JCheckBox symptomF = new JCheckBox("Dehydration");
 	public static JCheckBox symptomG = new JCheckBox("Incoherence");
 	public static JCheckBox symptomH = new JCheckBox("Fatigue");
-	public static JCheckBox symptomI = new JCheckBox();
-	public static JCheckBox symptomJ = new JCheckBox();
+	public static JCheckBox symptomI = new JCheckBox("Diarrhea");
+	public static JCheckBox symptomJ = new JCheckBox("Vomiting");
+	//More checkboxes
+	public static JCheckBox locationA = new JCheckBox("Head");
+	public static JCheckBox locationB = new JCheckBox("Neck");
+	public static JCheckBox locationC = new JCheckBox("Chest");
+	public static JCheckBox locationD = new JCheckBox("Stomach");
+	public static JCheckBox locationE = new JCheckBox("Muscles");
+	public static JCheckBox locationF = new JCheckBox("Bones");
+	public static JCheckBox locationG = new JCheckBox("Joints");
+	public static JCheckBox locationH = new JCheckBox("Back");
 	//Testing purposes
 	public static ImageIcon frog = createImageIcon("frog.jpg");
 	public static ImageIcon potato = createImageIcon("potato.jpg");

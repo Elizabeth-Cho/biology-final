@@ -16,15 +16,19 @@ public class GUI {
 		//Set frames
 		frame = new JFrame("Information Medical Data Collection (iMDC)"); //Rename
 		frame.setSize(800, 600);
-		frame.setLayout(new GridLayout(1, 2, 5, 5));
-		//Add panels
-		//frame.add(PanelIndex.test);
-		frame.add(PanelIndex.personalInfo);
-		frame.add(PanelIndex.baseInfo);
-		frame.setIconImage(PanelIndex.icon.getImage());
-		//frame.add(PanelIndex.two);
+		GUI.frame.setLayout(new GridLayout(1, 2, 5, 5));
+		GUI.frame.add(PanelIndex.personalInfo);
+		GUI.frame.add(PanelIndex.baseInfo);
 		Processing.infoPanel();
 		Processing.basePanel();
+		//Add panels
+		//frame.add(PanelIndex.test);
+		//frame.add(PanelIndex.begin);
+		frame.setIconImage(PanelIndex.icon.getImage());
+		//frame.add(PanelIndex.two);
+		//Processing.startPanel();
+		//Processing.infoPanel();
+		//Processing.basePanel();
 		PanelIndex.progress.add(PanelIndex.sideL);
 		PanelIndex.two.setLayout(new GridLayout(2, 1));
 		//PanelIndex.two.add(PanelIndex.baseInfo);
@@ -101,11 +105,18 @@ public class GUI {
 		PanelIndex.nextB.addActionListener(new Listener());
 		PanelIndex.nextC.addActionListener(new Listener());
 		PanelIndex.nextD.addActionListener(new Listener());
+		PanelIndex.nextSymp.addActionListener(new Listener());
+		PanelIndex.nextSympL.addActionListener(new Listener());
+		PanelIndex.nextSympC.addActionListener(new Listener());
 		PanelIndex.lessDay.addActionListener(new Listener());
 		PanelIndex.twoThreeDay.addActionListener(new Listener());
 		PanelIndex.fourFiveDay.addActionListener(new Listener());
 		PanelIndex.sixSevenDay.addActionListener(new Listener());
 		PanelIndex.moreThanWeek.addActionListener(new Listener());
+		PanelIndex.pregnancy.addActionListener(new Listener());
+		PanelIndex.cuts.addActionListener(new Listener());
+		PanelIndex.accident.addActionListener(new Listener());
+		PanelIndex.start.addActionListener(new Listener());
 		//Set visible
 		frame.setVisible(true);
 		
@@ -138,6 +149,9 @@ public class GUI {
 				Processing.checkBase(x);
 				System.out.println("finish");*/
 			}
+			/*else if(x == PanelIndex.start){
+				Processing.afterStart();
+			}*/
 			else if(x == PanelIndex.pathA){
 				Processing.switchToA();
 				UserInfo.reason = "Pain";
@@ -160,6 +174,12 @@ public class GUI {
 				Processing.pathALevelTwo();
 				UserInfo.durationA = ((JButton)x).getText();
 			}
+			else if(x == PanelIndex.lessDay || x == PanelIndex.twoThreeDay ||
+					x == PanelIndex.fourFiveDay || x == PanelIndex.sixSevenDay||
+					x == PanelIndex.moreThanWeek){
+				Processing.pathBLevelTwo();
+				UserInfo.durationB = ((JButton)x).getText();
+			}
 			else if(x == PanelIndex.head || x == PanelIndex.neck ||
 					x == PanelIndex.chest || x == PanelIndex.stomach ||
 					x == PanelIndex.arms || x == PanelIndex.legs ||
@@ -173,23 +193,41 @@ public class GUI {
 				if(selected == null){
 					new PopupGUI("blank");
 				}
-				System.out.println(selected.getText());
+				UserInfo.rateA = selected.getText();
 				Processing.endScreen(x);
+				FileWriter.sortFile();
 				FileWriter.writeFile();
 			}
 			else if(x == PanelIndex.nextB){
-				if(Processing.loopThrough(ArrayListIndex.pathBRate) == null){
+				JRadioButton select = Processing.loopThrough(ArrayListIndex.pathBRate);
+				if(select == null){
 					new PopupGUI("blank");
 				}
+				UserInfo.rateB = select.getText();
 				Processing.endScreen(x);
 				FileWriter.writeFile();
 			}
 			else if(x == PanelIndex.nextC){
-				if(Processing.loopThrough(ArrayListIndex.pathCRate) == null){
+				JRadioButton select = Processing.loopThrough(ArrayListIndex.pathCRate);
+				if(select == null){
 					new PopupGUI("blank");
 				}
+				UserInfo.rateC = select.getText();
 				Processing.endScreen(x);
 				FileWriter.writeFile();
+			}
+			else if(x == PanelIndex.nextSympL){
+				Processing.pathBLevelThree();
+			}
+			else if(x == PanelIndex.nextSymp){
+				Processing.pathBLevelFour();
+			}
+			else if(x == PanelIndex.nextSympC){
+				Processing.pathCLevelThree();
+			}
+			else if(x == PanelIndex.accident || x == PanelIndex.cuts ||
+					x == PanelIndex.pregnancy){
+				Processing.pathCLevelTwo();
 			}
 			String result = "";
 			 		

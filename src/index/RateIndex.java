@@ -78,4 +78,27 @@ public class RateIndex {
 		list.add(jc);
 	}
 	
+	public static void fillSymp(ArrayList<JCheckBox> list){
+		list.add(PanelIndex.symptomA);
+		list.add(PanelIndex.symptomB);
+		list.add(PanelIndex.symptomC);
+		list.add(PanelIndex.symptomD);
+		list.add(PanelIndex.symptomE);
+		list.add(PanelIndex.symptomF);
+		list.add(PanelIndex.symptomG);
+		list.add(PanelIndex.symptomH);
+		list.add(PanelIndex.symptomI);
+		list.add(PanelIndex.symptomJ);
+	}
+
+	public static void fillSympL(ArrayList<JCheckBox> list){
+		list.add(PanelIndex.locationA);
+		list.add(PanelIndex.locationB);
+		list.add(PanelIndex.locationC);
+		list.add(PanelIndex.locationD);
+		list.add(PanelIndex.locationE);
+		list.add(PanelIndex.locationF);
+		list.add(PanelIndex.locationG);
+		list.add(PanelIndex.locationH);
+	}
 }
