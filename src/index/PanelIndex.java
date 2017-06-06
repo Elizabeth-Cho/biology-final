@@ -58,17 +58,17 @@ public class PanelIndex {
 	public static JLabel visit = 
 			new JLabel("<html><p>Have you been here in the past week?</p></html>");
 	public static JLabel med = 
-			new JLabel("<html><p>Are you currently taking any medications? (If yes, please list)</p></html>");
+			new JLabel("<html><p>Are you currently taking any medications?</p></html>");
 	public static JLabel preexisting = 
-			new JLabel("<html><p>Do you have any preexisting conditions? (If yes, please list)</p></html>");
+			new JLabel("<html><p>Do you have any preexisting conditions?</p></html>");
 	public static JLabel history =
-			new JLabel("<html><p>Do you have any family history of conditions? (If yes, please list)</p></html>");
+			new JLabel("<html><p>Do you have any family history of conditions?</p></html>");
 	public static JLabel blankField = 
 			new JLabel("<html><p>Please do not leave any fields empty</p></html>");
 	public static JLabel NAN = 
 			new JLabel("<html><p>Please input a valid number</p></html>");
 	public static JLabel al = 
-			new JLabel("<html><p>Do you have any allergies? (If yes, please list)</p></html>");
+			new JLabel("<html><p>Do you have any allergies?</p></html>");
 	//Others
 	public static JFormattedTextField ageF = new JFormattedTextField();
 	public static ButtonGroup oneToTenA = new ButtonGroup();	//Baymax
@@ -82,6 +82,7 @@ public class PanelIndex {
 	public static JTextField allergies = new JTextField();
 	public static Color blueA = new Color(147, 218, 236);
 	public static Color blueB = new Color(97, 218, 236);
+	public static Color red = new Color(178, 6, 9);
 	//Panel
 	public static JPanel begin = new JPanel();
 	public static JPanel startInfo = new JPanel();
@@ -125,6 +126,7 @@ public class PanelIndex {
 	public static JPanel wrapperG = new JPanel();
 	//Buttons
 	public static JButton start = new JButton("Start");
+	public static JButton rStart = new JButton("Okay");
 	public static JButton pathA = new JButton("Pain");		//Pain
 	public static JButton pathB = new JButton("Illness");	//Illness
 	public static JButton pathC = new JButton("Accident");	//Accidents

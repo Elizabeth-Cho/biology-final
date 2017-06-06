@@ -6,7 +6,6 @@ import javax.swing.*;
 import index.*;;
 
 public class Processing {
-	private Signal sig;
 	public static String category;
 	public static String format = "";
 	private static boolean selected = false;
@@ -15,10 +14,51 @@ public class Processing {
 	private String[] ynB = {"yesB", "noB"};
 	
 	
-	public Processing(Signal s){
-		sig = s;
+	public Processing(){
+		
 	}
 	
+	public static boolean validBirthday(){
+		int cYear = 2017;
+		int inM = Integer.parseInt(PersonalPI.dob.getText().substring(0, 2));
+		int inD = Integer.parseInt(PersonalPI.dob.getText().substring(3, 5));
+		int inY = Integer.parseInt(PersonalPI.dob.getText().substring(6));
+		System.out.println("The stuff: " + inM + " " + inD + " " + inY);
+		if(inY > cYear){
+			return false;
+		}
+		else if(inM > 12){
+			return false;
+		}
+		else if(inM <= 12){
+			if(inM == 1||inM == 3||inM == 5||inM == 7||inM == 8||inM == 10||inM == 12){
+				if(inD > 31){
+					return false;
+				}
+			}
+			else if(inM == 4||inM == 6||inM == 9||inM == 11){
+				if(inD > 30){
+					return false;
+				}
+			}
+			else if(inM == 2){
+				if(inY%4 == 0){
+					if(inD > 29){
+						return false;
+					}
+				}
+				else{
+					if(inD > 28){
+						return false;
+					}
+				}
+			}
+		}
+		return true;
+	}
+	public static void initializeAll(){
+		
+	}
 	public static void startPanel(){
 		PanelIndex.begin.setLayout(new BorderLayout());
 		PanelIndex.begin.add(PanelIndex.backL, BorderLayout.CENTER);
@@ -27,9 +67,56 @@ public class Processing {
 	public static void returnToStart(){
 		GUI.frame.remove(PanelIndex.progress);
 		GUI.frame.remove(PanelIndex.two);
+		PanelIndex.two.remove(PanelIndex.lilBaymax);
+		PanelIndex.question.remove(PanelIndex.endL);
 		resetPanels();
-		GUI.frame.add(PanelIndex.baseInfo);
 		GUI.frame.add(PanelIndex.personalInfo);
+		GUI.frame.add(PanelIndex.baseInfo);
+	}
+	public static void resetAll(){
+		PersonalPI.fN.setText("");
+		PersonalPI.mN.setText("");
+		PersonalPI.lN.setText("");
+		PersonalPI.dob.setText("");
+		PersonalPI.addr.setText("");
+		PersonalPI.email.setText("");
+		PersonalPI.number.setText("");
+		PersonalPI.eName.setText("");
+		PersonalPI.eNumber.setText("");
+		PersonalPI.eRel.setText("");
+		PersonalPI.insProv.setText("");
+		PersonalPI.insHold.setText("");
+		PersonalPI.insID.setText("");
+		PersonalPI.occupation.setText("");
+		PersonalPI.employer.setText("");
+		PersonalPI.empAdd.setText("");
+		PersonalPI.empNum.setText("");
+		PersonalPI.pcName.setText("");
+		PersonalPI.pcNum.setText("");
+		PersonalPI.pcAddr.setText("");
+		PanelIndex.allergies.setText("");
+		PanelIndex.currMed.setText("");
+		PanelIndex.preex.setText("");
+		PanelIndex.hist.setText("");
+		PersonalPI.genC.setSelectedIndex(0);
+		PersonalPI.raceC.setSelectedIndex(0);
+		PersonalPI.covTypeC.setSelectedIndex(0);
+		PersonalPI.relC.setSelectedIndex(0);
+		PanelIndex.alC.setSelectedIndex(0);
+		PanelIndex.medC.setSelectedIndex(0);
+		PanelIndex.preexC.setSelectedIndex(0);
+		PanelIndex.histC.setSelectedIndex(0);
+		PanelIndex.prC.setSelectedIndex(0);
+		PanelIndex.oneToTenA.clearSelection();
+		PanelIndex.oneToTenB.clearSelection();
+		PanelIndex.oneToTenC.clearSelection();
+		for(int i = 0; i < ArrayListIndex.symptoms.size(); i++){
+			ArrayListIndex.symptoms.get(i).setSelected(false);
+		}
+		for(int i = 0; i < ArrayListIndex.symptLoc.size(); i++){
+			ArrayListIndex.symptLoc.get(i).setSelected(false);
+		}
+		UserInfo.symptoms.clear();
 	}
 	public static void afterStart(){
 		GUI.frame.remove(PanelIndex.begin);
@@ -210,6 +297,8 @@ public class Processing {
 
 	public static boolean checkFormat(){
 		format = "";
+		boolean valid = validBirthday();
+		System.out.println(valid);
 		if(!PersonalPI.email.getText().contains("@") ||
 				!PersonalPI.dob.getText().substring(2, 3).equals("/")||
 				!PersonalPI.dob.getText().substring(5, 6).equals("/")){
@@ -220,6 +309,10 @@ public class Processing {
 				!PersonalPI.dob.getText().substring(5, 6).equals("/")){
 				format += "dob";
 			}	
+			if(!valid){
+				format += "vDob";
+				System.out.println(format);
+			}
 			return false;
 		}
 		
@@ -243,7 +336,7 @@ public class Processing {
 		PanelIndex.multResponses.add(PanelIndex.pathC);
 		PanelIndex.multResponses.add(PanelIndex.pathD);
 	}
-	
+
 	public static void switchToA(){
 		switchCat();
 		resetPanels();
@@ -287,7 +380,7 @@ public class Processing {
 		PanelIndex.rateP.add(PanelIndex.blankB);
 		PanelIndex.rateP.add(PanelIndex.nextA);
 		PanelIndex.rate.setLayout(new GridLayout(1, 10, 5, 10));
-		RateIndex.fillC(ArrayListIndex.pathARate);
+		RateIndex.fillA(ArrayListIndex.pathARate);
 		for(int i = 0; i < ArrayListIndex.pathARate.size(); i++) {
 			PanelIndex.rate.add(ArrayListIndex.pathARate.get(i));
 			PanelIndex.oneToTenA.add(ArrayListIndex.pathARate.get(i));
@@ -348,7 +441,7 @@ public class Processing {
 		PanelIndex.rateP.add(PanelIndex.blankB);
 		PanelIndex.rateP.add(PanelIndex.nextB);
 		PanelIndex.rate.setLayout(new GridLayout(1, 10, 5, 10));
-		RateIndex.fillC(ArrayListIndex.pathBRate);
+		RateIndex.fillB(ArrayListIndex.pathBRate);
 		for(int i = 0; i < ArrayListIndex.pathBRate.size(); i++) {
 			PanelIndex.rate.add(ArrayListIndex.pathBRate.get(i));
 			PanelIndex.oneToTenA.add(ArrayListIndex.pathBRate.get(i));
@@ -481,6 +574,8 @@ public class Processing {
 		PanelIndex.two.add(PanelIndex.lilBaymax);
 		PanelIndex.lilBaymax.setLayout(new BorderLayout());
 		PanelIndex.lilBaymax.add(PanelIndex.baymaxL, BorderLayout.CENTER);
+		PanelIndex.lilBaymax.add(PanelIndex.rStart, BorderLayout.PAGE_END);
+		PanelIndex.lilBaymax.setBackground(PanelIndex.red);
 	}
 	public static JRadioButton loopThrough(ArrayList<JRadioButton> al){
 		JRadioButton select;

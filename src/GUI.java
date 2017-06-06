@@ -9,10 +9,12 @@ import index.*;
 
 public class GUI {
 	public static JFrame frame;
-	public static int counter;
+	//public static int counter;
+	private boolean initialized;
 	
 	public GUI() {
-		counter = 0;
+		initialized = false;
+		//counter = 0;
 		//Set frames
 		frame = new JFrame("Information Medical Data Collection (iMDC)"); //Rename
 		frame.setSize(800, 600);
@@ -117,6 +119,7 @@ public class GUI {
 		PanelIndex.cuts.addActionListener(new Listener());
 		PanelIndex.accident.addActionListener(new Listener());
 		PanelIndex.start.addActionListener(new Listener());
+		PanelIndex.rStart.addActionListener(new Listener());
 		//Set visible
 		frame.setVisible(true);
 		
@@ -132,8 +135,12 @@ public class GUI {
 				System.out.println();
 				if(Processing.checkBase()){
 					if(Processing.checkFormat()){
+						System.out.println(Processing.checkFormat());
 						Processing.transferInfo();
 						Processing.switchToCat();
+						if(!initialized){
+							Processing.initializeAll();
+						}
 					}
 					else{
 						new PopupGUI(Processing.format);
@@ -152,6 +159,10 @@ public class GUI {
 			/*else if(x == PanelIndex.start){
 				Processing.afterStart();
 			}*/
+			else if(x == PanelIndex.rStart){
+				Processing.resetAll();
+				Processing.returnToStart();
+			}
 			else if(x == PanelIndex.pathA){
 				Processing.switchToA();
 				UserInfo.reason = "Pain";
@@ -193,10 +204,12 @@ public class GUI {
 				if(selected == null){
 					new PopupGUI("blank");
 				}
-				UserInfo.rateA = selected.getText();
-				Processing.endScreen(x);
-				FileWriter.sortFile();
-				FileWriter.writeFile();
+				else{
+					UserInfo.rateA = selected.getText();
+					Processing.endScreen(x);
+					FileWriter.sortFile();
+					FileWriter.writeFile();
+				}
 			}
 			else if(x == PanelIndex.nextB){
 				JRadioButton select = Processing.loopThrough(ArrayListIndex.pathBRate);

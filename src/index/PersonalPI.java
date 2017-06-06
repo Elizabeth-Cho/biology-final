@@ -68,10 +68,10 @@ public class PersonalPI {
 	public static JLabel pcNumL = new JLabel("Phone number");
 	public static JLabel pcAddrL = new JLabel("Address");
 
-	public static JLabel alA = new JLabel();
-	public static JLabel medA = new JLabel();
-	public static JLabel preexA = new JLabel();
-	public static JLabel histA = new JLabel();
+	public static JLabel alA = new JLabel("(If yes, please list)");
+	public static JLabel medA = new JLabel("(If yes, please list)");
+	public static JLabel preexA = new JLabel("(If yes, please list)");
+	public static JLabel histA = new JLabel("(If yes, please list)");
 	
 	public static JPanel nameP = new JPanel();		//3x3
 	public static JPanel addrP = new JPanel();		//2x1

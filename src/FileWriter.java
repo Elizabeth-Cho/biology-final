@@ -12,7 +12,6 @@ public class FileWriter {
 	public static void sortFile(){
 		if(UserInfo.reason.equals("Pain")){
 			int rate = Integer.parseInt(UserInfo.rateA);
-			System.out.println(rate + 1);
 			if(rate >= 8){
 				path += "Level 2 [Emergency]\\" + fileName;
 				//8, 9, 10
@@ -31,10 +30,42 @@ public class FileWriter {
 			}
 		}
 		else if(UserInfo.reason.equals("Illness")){
-			
+			int rate = Integer.parseInt(UserInfo.rateB);
+			if(rate >= 8){
+				path += "Level 2 [Emergency]\\" + fileName;
+				//8, 9, 10
+			}
+			else if(rate >= 6 && rate < 8){
+				path += "Level 3 [Urgent]\\" + fileName;
+				//6, 7
+			}
+			else if(rate >= 4 && rate < 6){
+				path += "Level 4 [Semi-urgent]\\" + fileName;
+				//4, 5
+			}
+			else if(rate >= 1 && rate < 4){
+				path += "Level 5 [Non-urgent]\\" + fileName;
+				//1, 2, 3
+			}
 		}
 		else if(UserInfo.reason.equals("Accident")){
-			
+			int rate = Integer.parseInt(UserInfo.rateC);
+			if(rate >= 8){
+				path += "Level 2 [Emergency]\\" + fileName;
+				//8, 9, 10
+			}
+			else if(rate >= 6 && rate < 8){
+				path += "Level 3 [Urgent]\\" + fileName;
+				//6, 7
+			}
+			else if(rate >= 4 && rate < 6){
+				path += "Level 4 [Semi-urgent]\\" + fileName;
+				//4, 5
+			}
+			else if(rate >= 1 && rate < 4){
+				path += "Level 5 [Non-urgent]\\" + fileName;
+				//1, 2, 3
+			}
 		}
 		else if(UserInfo.reason.equals("Other")){
 			
