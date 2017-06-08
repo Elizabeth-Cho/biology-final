@@ -10,6 +10,7 @@ public class FileWriter {
 	private static String path = "c:\\Users\\zergl\\workspace\\biology-final\\src\\files\\";
 	
 	public static void sortFile(){
+		System.out.println("FileWriter: Sorting");
 		if(UserInfo.reason.equals("Pain")){
 			int rate = Integer.parseInt(UserInfo.rateA);
 			if(rate >= 8){
@@ -75,10 +76,10 @@ public class FileWriter {
 		try {
 			file = new File(path);
 			if(file.createNewFile()){
-				System.out.println("created");
+				System.out.println("FileWriter: created");
 			}
 			else{
-				System.out.println("nope");
+				System.out.println("FileWriter: nope");
 			}
 			PrintWriter writer= new PrintWriter(path, "UTF-8");
 			writer.println("Basic Information");
@@ -160,12 +161,12 @@ public class FileWriter {
 			else if(UserInfo.reason.equals("Illness")){
 				writer.println("Duration: " + UserInfo.durationB);
 				writer.println("Location: " + UserInfo.locationB);
-				writer.println("Symptoms: " + UserInfo.symptoms.get(0) + ", ");
+				/*writer.println("Symptoms: " + UserInfo.symptoms.get(0) + ", ");
 				for(int i = 1; i < UserInfo.symptoms.size() - 1; i++){
 					String symp = UserInfo.symptoms.get(i);
 					writer.print(symp + ", ");
 				}
-				writer.print(UserInfo.symptoms.get(UserInfo.symptoms.size()-1));
+				writer.print(UserInfo.symptoms.get(UserInfo.symptoms.size()-1));*/
 				writer.println("Level of pain: " + UserInfo.rateB);
 			}
 			else if(UserInfo.reason.equals("Accident")){

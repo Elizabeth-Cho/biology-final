@@ -79,42 +79,42 @@ public class GUI {
 		PanelIndex.st.add(PanelIndex.fr);
 		PanelIndex.a.add(PanelIndex.levelA);
 		PanelIndex.a.add(PanelIndex.pot);*/
+		//PanelIndex.levelA.addActionListener(new Listener());
+		//PanelIndex.levelB.addActionListener(new Listener());
 		
 		//Add listeners
-		PanelIndex.levelA.addActionListener(new Listener());
-		PanelIndex.levelB.addActionListener(new Listener());
-		PanelIndex.next.addActionListener(new Listener());
-		PanelIndex.pathA.addActionListener(new Listener());
-		PanelIndex.pathB.addActionListener(new Listener());
-		PanelIndex.pathC.addActionListener(new Listener());
-		PanelIndex.pathD.addActionListener(new Listener());
-		PanelIndex.lessWeek.addActionListener(new Listener());
-		PanelIndex.oneTwoWeek.addActionListener(new Listener());
-		PanelIndex.twoThreeWeek.addActionListener(new Listener());
-		PanelIndex.threeFourWeek.addActionListener(new Listener());
-		PanelIndex.moreThanMonth.addActionListener(new Listener());
-		PanelIndex.head.addActionListener(new Listener());
-		PanelIndex.neck.addActionListener(new Listener());
-		PanelIndex.chest.addActionListener(new Listener());
-		PanelIndex.stomach.addActionListener(new Listener());
-		PanelIndex.arms.addActionListener(new Listener());
-		PanelIndex.legs.addActionListener(new Listener());
-		PanelIndex.back.addActionListener(new Listener());
-		PanelIndex.joint.addActionListener(new Listener());
-		PanelIndex.muscles.addActionListener(new Listener());
-		PanelIndex.bones.addActionListener(new Listener());
-		PanelIndex.nextA.addActionListener(new Listener());
-		PanelIndex.nextB.addActionListener(new Listener());
+		PanelIndex.next.addActionListener(new startListener());
+		PanelIndex.pathA.addActionListener(new chooseListener());
+		PanelIndex.pathB.addActionListener(new chooseListener());
+		PanelIndex.pathC.addActionListener(new chooseListener());
+		PanelIndex.pathD.addActionListener(new chooseListener());
+		PanelIndex.lessWeek.addActionListener(new pathAListener());
+		PanelIndex.oneTwoWeek.addActionListener(new pathAListener());
+		PanelIndex.twoThreeWeek.addActionListener(new pathAListener());
+		PanelIndex.threeFourWeek.addActionListener(new pathAListener());
+		PanelIndex.moreThanMonth.addActionListener(new pathAListener());
+		PanelIndex.head.addActionListener(new pathAListener());
+		PanelIndex.neck.addActionListener(new pathAListener());
+		PanelIndex.chest.addActionListener(new pathAListener());
+		PanelIndex.stomach.addActionListener(new pathAListener());
+		PanelIndex.arms.addActionListener(new pathAListener());
+		PanelIndex.legs.addActionListener(new pathAListener());
+		PanelIndex.back.addActionListener(new pathAListener());
+		PanelIndex.joint.addActionListener(new pathAListener());
+		PanelIndex.muscles.addActionListener(new pathAListener());
+		PanelIndex.bones.addActionListener(new pathAListener());
+		PanelIndex.nextA.addActionListener(new pathAListener());
+		PanelIndex.nextB.addActionListener(new pathBListener());
 		PanelIndex.nextC.addActionListener(new Listener());
 		PanelIndex.nextD.addActionListener(new Listener());
 		PanelIndex.nextSymp.addActionListener(new Listener());
-		PanelIndex.nextSympL.addActionListener(new Listener());
-		PanelIndex.nextSympC.addActionListener(new Listener());
-		PanelIndex.lessDay.addActionListener(new Listener());
-		PanelIndex.twoThreeDay.addActionListener(new Listener());
-		PanelIndex.fourFiveDay.addActionListener(new Listener());
-		PanelIndex.sixSevenDay.addActionListener(new Listener());
-		PanelIndex.moreThanWeek.addActionListener(new Listener());
+		PanelIndex.nextSympL.addActionListener(new pathBListener());
+		PanelIndex.nextSympC.addActionListener(new pathBListener());
+		PanelIndex.lessDay.addActionListener(new pathBListener());
+		PanelIndex.twoThreeDay.addActionListener(new pathBListener());
+		PanelIndex.fourFiveDay.addActionListener(new pathBListener());
+		PanelIndex.sixSevenDay.addActionListener(new pathBListener());
+		PanelIndex.moreThanWeek.addActionListener(new pathBListener());
 		PanelIndex.pregnancy.addActionListener(new Listener());
 		PanelIndex.cuts.addActionListener(new Listener());
 		PanelIndex.accident.addActionListener(new Listener());
@@ -135,12 +135,16 @@ public class GUI {
 				System.out.println();
 				if(Processing.checkBase()){
 					if(Processing.checkFormat()){
+						if(!initialized){
+							System.out.println(initialized);
+							Processing.initializeAll();
+							initialized = true;
+							System.out.println(initialized);
+						}
 						System.out.println(Processing.checkFormat());
 						Processing.transferInfo();
+						System.out.println(UserInfo.fN + UserInfo.mN + UserInfo.lN);
 						Processing.switchToCat();
-						if(!initialized){
-							Processing.initializeAll();
-						}
 					}
 					else{
 						new PopupGUI(Processing.format);
@@ -160,7 +164,7 @@ public class GUI {
 				Processing.afterStart();
 			}*/
 			else if(x == PanelIndex.rStart){
-				Processing.resetAll();
+				Processing.resetAll(UserInfo.reason);
 				Processing.returnToStart();
 			}
 			else if(x == PanelIndex.pathA){
@@ -218,6 +222,7 @@ public class GUI {
 				}
 				UserInfo.rateB = select.getText();
 				Processing.endScreen(x);
+				FileWriter.sortFile();
 				FileWriter.writeFile();
 			}
 			else if(x == PanelIndex.nextC){
@@ -225,7 +230,9 @@ public class GUI {
 				if(select == null){
 					new PopupGUI("blank");
 				}
+				System.out.println(select.getText());
 				UserInfo.rateC = select.getText();
+				FileWriter.sortFile();
 				Processing.endScreen(x);
 				FileWriter.writeFile();
 			}
@@ -248,4 +255,142 @@ public class GUI {
 		
 	}
 	
+	private class startListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object x = e.getSource();
+			if(x == PanelIndex.next){
+				if(Processing.checkBase()){			//Check for missing info
+					if(Processing.checkFormat()){	//Check for format of dob and email
+						Processing.transferInfo();
+						Processing.switchToCat();
+						if(!initialized){			//Only initialize everything once
+							Processing.initializeAll();	
+						}
+					}
+				}
+			}
+			else{
+				new PopupGUI(Processing.format);
+			}
+		}
+		
+	}
+	private class chooseListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object x = e.getSource();
+			if(x == PanelIndex.pathA){
+				Processing.switchToA();
+				UserInfo.reason = "Pain";
+			}
+			else if(x == PanelIndex.pathB){
+				Processing.switchToB();
+				UserInfo.reason = "Illness";
+			}
+			else if(x == PanelIndex.pathC){
+				Processing.switchToC();
+				UserInfo.reason = "Accident";
+			}
+			else if(x == PanelIndex.pathD){
+				Processing.switchToD();
+				UserInfo.reason = "Other";
+			}
+		}
+		
+	}
+	private class pathAListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object x = e.getSource();
+			if(x == PanelIndex.lessWeek || x == PanelIndex.oneTwoWeek ||
+					x == PanelIndex.twoThreeWeek || x == PanelIndex.threeFourWeek ||
+					x == PanelIndex.moreThanMonth){
+				Processing.pathALevelTwo();
+				UserInfo.durationA = ((JButton)x).getText();
+			}
+			else if(x == PanelIndex.head || x == PanelIndex.neck ||
+					x == PanelIndex.chest || x == PanelIndex.stomach ||
+					x == PanelIndex.arms || x == PanelIndex.legs ||
+					x == PanelIndex.back || x == PanelIndex.joint ||
+					x == PanelIndex.muscles || x == PanelIndex.bones) {
+				Processing.pathALevelThree();
+				UserInfo.locationA = ((JButton)x).getText();
+			}
+			else if(x == PanelIndex.nextA){
+				JRadioButton selected = Processing.loopThrough(ArrayListIndex.pathARate);
+				if(selected == null){
+					new PopupGUI("blank");
+				}
+				else{
+					UserInfo.rateA = selected.getText();
+					Processing.endScreen(x);
+					FileWriter.sortFile();
+					FileWriter.writeFile();
+				}
+			}
+		}
+		
+	}
+	private class pathBListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object x = e.getSource();
+			if(x == PanelIndex.lessDay || x == PanelIndex.twoThreeDay ||
+					x == PanelIndex.fourFiveDay || x == PanelIndex.sixSevenDay||
+					x == PanelIndex.moreThanWeek){
+				Processing.pathBLevelTwo();
+				UserInfo.durationB = ((JButton)x).getText();
+			}
+			else if(x == PanelIndex.nextSympL){		//Need to add to AL, add input option
+				for(int i = 0; i < ArrayListIndex.symptLoc.size(); i++){
+					JCheckBox check = ArrayListIndex.symptLoc.get(i);
+					if(check.isSelected()){
+						UserInfo.symptLoc.add(((JButton)x).getText());
+					}
+				}
+				Processing.pathBLevelThree();
+			}
+			else if(x == PanelIndex.nextSymp){		//Need to add to AL, add input option
+				for(int i = 0; i < ArrayListIndex.symptoms.size(); i++){
+					JCheckBox check = ArrayListIndex.symptLoc.get(i);
+					if(check.isSelected()){
+						UserInfo.symptoms.add(((JButton)x).getText());
+					}
+				}
+				Processing.pathBLevelFour();
+			}
+			else if(x == PanelIndex.nextB){
+				JRadioButton selected = Processing.loopThrough(ArrayListIndex.pathBRate);
+				if(selected == null){
+					new PopupGUI("blank");
+				}
+				else{
+					UserInfo.rateB = selected.getText();
+					Processing.endScreen(x);
+					FileWriter.sortFile();
+					FileWriter.writeFile();
+				}
+			}
+		}
+		
+	}
+	private class pathCListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	private class pathDListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
 }

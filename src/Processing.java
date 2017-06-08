@@ -23,7 +23,7 @@ public class Processing {
 		int inM = Integer.parseInt(PersonalPI.dob.getText().substring(0, 2));
 		int inD = Integer.parseInt(PersonalPI.dob.getText().substring(3, 5));
 		int inY = Integer.parseInt(PersonalPI.dob.getText().substring(6));
-		System.out.println("The stuff: " + inM + " " + inD + " " + inY);
+		//System.out.println("The stuff: " + inM + " " + inD + " " + inY);
 		if(inY > cYear){
 			return false;
 		}
@@ -57,7 +57,20 @@ public class Processing {
 		return true;
 	}
 	public static void initializeAll(){
-		
+		RateIndex.fillA(ArrayListIndex.pathARate);
+		RateIndex.fillB(ArrayListIndex.pathBRate);
+		RateIndex.fillC(ArrayListIndex.pathCRate);
+		RateIndex.fillSymp(ArrayListIndex.symptoms);
+		RateIndex.fillSympL(ArrayListIndex.symptLoc);
+		for(int i = 0; i < ArrayListIndex.pathARate.size(); i++){
+			PanelIndex.oneToTenA.add(ArrayListIndex.pathARate.get(i));
+		}
+		for(int i = 0; i < ArrayListIndex.pathBRate.size(); i++){
+			PanelIndex.oneToTenB.add(ArrayListIndex.pathBRate.get(i));
+		}
+		for(int i = 0; i < ArrayListIndex.pathCRate.size(); i++){
+			PanelIndex.oneToTenC.add(ArrayListIndex.pathCRate.get(i));
+		}
 	}
 	public static void startPanel(){
 		PanelIndex.begin.setLayout(new BorderLayout());
@@ -73,7 +86,8 @@ public class Processing {
 		GUI.frame.add(PanelIndex.personalInfo);
 		GUI.frame.add(PanelIndex.baseInfo);
 	}
-	public static void resetAll(){
+	public static void resetAll(String path){
+		path = UserInfo.reason;
 		PersonalPI.fN.setText("");
 		PersonalPI.mN.setText("");
 		PersonalPI.lN.setText("");
@@ -107,9 +121,30 @@ public class Processing {
 		PanelIndex.preexC.setSelectedIndex(0);
 		PanelIndex.histC.setSelectedIndex(0);
 		PanelIndex.prC.setSelectedIndex(0);
+		if(path.equals("Pain")){
+			
+		}
+		else if(path.equals("Illness")){
+			
+		}
+		else if(path.equals("Accident")){
+			
+		}
 		PanelIndex.oneToTenA.clearSelection();
 		PanelIndex.oneToTenB.clearSelection();
 		PanelIndex.oneToTenC.clearSelection();
+		/*JRadioButton pathA = loopThrough(ArrayListIndex.pathARate);
+		JRadioButton pathB = loopThrough(ArrayListIndex.pathBRate);
+		JRadioButton pathC = loopThrough(ArrayListIndex.pathCRate);
+		if(pathA != null){
+			pathA.setSelected(false);
+		}
+		else if(pathB != null){
+			pathB.setSelected(false);
+		}
+		else if(pathC != null){
+			pathC.setSelected(false);
+		}*/
 		for(int i = 0; i < ArrayListIndex.symptoms.size(); i++){
 			ArrayListIndex.symptoms.get(i).setSelected(false);
 		}
@@ -249,7 +284,6 @@ public class Processing {
 		String covStr = PersonalPI.covTypeC.getSelectedItem().toString();
 		String relStr = PersonalPI.relC.getSelectedItem().toString();
 		if(PersonalPI.fN.getText().equals("")||
-				PersonalPI.mN.getText().equals("")||
 				PersonalPI.lN.getText().equals("")||
 				PersonalPI.dob.getText().equals("")||
 				PersonalPI.addr.getText().equals("")||
@@ -380,10 +414,8 @@ public class Processing {
 		PanelIndex.rateP.add(PanelIndex.blankB);
 		PanelIndex.rateP.add(PanelIndex.nextA);
 		PanelIndex.rate.setLayout(new GridLayout(1, 10, 5, 10));
-		RateIndex.fillA(ArrayListIndex.pathARate);
 		for(int i = 0; i < ArrayListIndex.pathARate.size(); i++) {
 			PanelIndex.rate.add(ArrayListIndex.pathARate.get(i));
-			PanelIndex.oneToTenA.add(ArrayListIndex.pathARate.get(i));
 		}
 	}
 	
@@ -408,7 +440,6 @@ public class Processing {
 		PanelIndex.question.add(PanelIndex.locationL);
 		PanelIndex.two.add(PanelIndex.locationP);
 		PanelIndex.locationP.setLayout(new GridLayout(9, 1));
-		RateIndex.fillSympL(ArrayListIndex.symptLoc);
 		for(int i = 0; i < ArrayListIndex.symptLoc.size(); i++){
 			PanelIndex.locationP.add(ArrayListIndex.symptLoc.get(i));
 		}
@@ -422,7 +453,6 @@ public class Processing {
 		PanelIndex.question.add(PanelIndex.sympL);
 		PanelIndex.two.add(PanelIndex.pathBQ);
 		PanelIndex.pathBQ.setLayout(new GridLayout(11, 1));
-		RateIndex.fillSymp(ArrayListIndex.symptoms);
 		for(int i = 0; i < ArrayListIndex.symptoms.size(); i++){
 			PanelIndex.pathBQ.add(ArrayListIndex.symptoms.get(i));
 		}
@@ -441,10 +471,8 @@ public class Processing {
 		PanelIndex.rateP.add(PanelIndex.blankB);
 		PanelIndex.rateP.add(PanelIndex.nextB);
 		PanelIndex.rate.setLayout(new GridLayout(1, 10, 5, 10));
-		RateIndex.fillB(ArrayListIndex.pathBRate);
 		for(int i = 0; i < ArrayListIndex.pathBRate.size(); i++) {
 			PanelIndex.rate.add(ArrayListIndex.pathBRate.get(i));
-			PanelIndex.oneToTenA.add(ArrayListIndex.pathBRate.get(i));
 		}
 	}
 
@@ -484,11 +512,9 @@ public class Processing {
 		PanelIndex.rateP.add(PanelIndex.rate);
 		PanelIndex.rateP.add(PanelIndex.blankB);
 		PanelIndex.rateP.add(PanelIndex.nextC);
-		PanelIndex.rate.setLayout(new GridLayout(10, 1, 5, 10));
-		RateIndex.fillC(ArrayListIndex.pathCRate);
+		PanelIndex.rate.setLayout(new GridLayout(1, 10, 5, 10));
 		for(int i = 0; i < ArrayListIndex.pathCRate.size(); i++) {
 			PanelIndex.rate.add(ArrayListIndex.pathCRate.get(i));
-			PanelIndex.oneToTenC.add(ArrayListIndex.pathCRate.get(i));
 		}
 		//Scale of 1-10
 	}
