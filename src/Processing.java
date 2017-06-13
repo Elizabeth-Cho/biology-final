@@ -8,7 +8,6 @@ import index.*;;
 public class Processing {
 	public static String category;
 	public static String format = "";
-	private static boolean selected = false;
 	public static String duration;
 	private String[] ynA = {"yesA", "noA"};
 	private String[] ynB = {"yesB", "noB"};
@@ -121,15 +120,6 @@ public class Processing {
 		PanelIndex.preexC.setSelectedIndex(0);
 		PanelIndex.histC.setSelectedIndex(0);
 		PanelIndex.prC.setSelectedIndex(0);
-		if(path.equals("Pain")){
-			
-		}
-		else if(path.equals("Illness")){
-			
-		}
-		else if(path.equals("Accident")){
-			
-		}
 		PanelIndex.oneToTenA.clearSelection();
 		PanelIndex.oneToTenB.clearSelection();
 		PanelIndex.oneToTenC.clearSelection();
@@ -484,7 +474,7 @@ public class Processing {
 		PanelIndex.pathCQ.setLayout(new GridLayout(1, 3));
 		PanelIndex.pathCQ.add(PanelIndex.accident);
 		PanelIndex.pathCQ.add(PanelIndex.cuts);
-		PanelIndex.pathCQ.add(PanelIndex.pregnancy);
+		PanelIndex.pathCQ.add(PanelIndex.overdose);
 		//Add responses	
 	}
 	
@@ -508,6 +498,7 @@ public class Processing {
 		resetPanels();
 		PanelIndex.question.add(PanelIndex.rateL);
 		PanelIndex.two.add(PanelIndex.rateP);
+		PanelIndex.rateP.setLayout(new GridLayout(4, 1));
 		PanelIndex.rateP.add(PanelIndex.blankA);
 		PanelIndex.rateP.add(PanelIndex.rate);
 		PanelIndex.rateP.add(PanelIndex.blankB);
@@ -599,11 +590,12 @@ public class Processing {
 		PanelIndex.question.add(PanelIndex.endL);
 		PanelIndex.two.add(PanelIndex.lilBaymax);
 		PanelIndex.lilBaymax.setLayout(new BorderLayout());
-		PanelIndex.lilBaymax.add(PanelIndex.baymaxL, BorderLayout.CENTER);
+		//PanelIndex.lilBaymax.add(PanelIndex.baymaxL, BorderLayout.CENTER);
 		PanelIndex.lilBaymax.add(PanelIndex.rStart, BorderLayout.PAGE_END);
-		PanelIndex.lilBaymax.setBackground(PanelIndex.red);
+		PanelIndex.lilBaymax.setBackground(PanelIndex.blueA);
 	}
 	public static JRadioButton loopThrough(ArrayList<JRadioButton> al){
+		boolean selected = false;
 		JRadioButton select;
 		while(!selected){
 			for(int i = 0; i < al.size(); i++){

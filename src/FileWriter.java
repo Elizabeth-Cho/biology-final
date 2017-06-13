@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import index.ArrayListIndex;
 
@@ -8,10 +9,55 @@ public class FileWriter {
 	private static String fileName = UserInfo.lN + UserInfo.fN + UserInfo.mN + ".txt";
 	private static File file;
 	private static String path = "c:\\Users\\zergl\\workspace\\biology-final\\src\\files\\";
+	static int rate = 0;
+	static String duration = "";
+	static String location = "";
+	static int rank = 0;
+	static String symptoms = "";
 	
-	public static void sortFile(){
-		System.out.println("FileWriter: Sorting");
+	public static void setInfo(){
 		if(UserInfo.reason.equals("Pain")){
+			rate = Integer.parseInt(UserInfo.rateA);
+			duration = UserInfo.durationA;
+			location = UserInfo.locationA;
+		}
+		else if(UserInfo.reason.equals("Illness")){
+			rate = Integer.parseInt(UserInfo.rateB);
+			duration = UserInfo.durationB;
+			location = UserInfo.locationB;
+		}
+		else if(UserInfo.reason.equals("Accident")){
+			rate = Integer.parseInt(UserInfo.rateC);
+			location = UserInfo.locationC;
+		}
+	}
+	public static void sortRate(){
+		System.out.println("FileWriter: Rate");
+		if(rate >= 8) {rank+=4;}
+		else if(rate >=6 && rate < 8) {rank+=3;}
+		else if(rate >=4 && rate < 6) {rank+=2;}
+		else{rank+=1;}
+	}
+	public static void sortFile(){
+		sortRate();
+		sortDuration();
+		System.out.println(rank);
+		System.out.println("FileWriter: Sorting");
+		if(rank > 13){
+			path += "Level 2 [Emergency]\\" + fileName;
+		}
+		else if(rank <= 13 && rank >8 ){
+			path += "Level 3 [Urgent]\\" + fileName;
+		}
+		else if(rank <=8 && rank <5){
+			path += "Level 4 [Semi-urgent]\\" + fileName;
+		}
+		else if(rank <=5){
+			path += "Level 5 [Non-urgent]\\" + fileName;
+		}
+		
+	}
+		/*if(UserInfo.reason.equals("Pain")){
 			int rate = Integer.parseInt(UserInfo.rateA);
 			if(rate >= 8){
 				path += "Level 2 [Emergency]\\" + fileName;
@@ -71,6 +117,19 @@ public class FileWriter {
 		else if(UserInfo.reason.equals("Other")){
 			
 		}
+	}*/
+	public static void sortDuration(){
+		System.out.println("FileWriter: Duration");
+		if(duration.equals("More than a month")||duration.equals("More than a week")) 
+			{rank+=10;}
+		else if(duration.equals("Three to four weeks")||duration.equals("Six to seven days"))
+			{rank+=8;}
+		else if(duration.equals("Two to three weeks")||duration.equals("Four to five days"))
+			{rank+=6;}
+		else if(duration.equals("One to two weeks")||duration.equals("Two to three days"))
+			{rank+=4;}
+		else if(duration.equals("Less than a week")||duration.equals("Less than a day"))
+			{rank+=2;}
 	}
 	public static void writeFile(){
 		try {
@@ -159,17 +218,20 @@ public class FileWriter {
 				writer.println("Level of pain: " + UserInfo.rateA);
 			}
 			else if(UserInfo.reason.equals("Illness")){
+				setSympt(UserInfo.symptoms);
 				writer.println("Duration: " + UserInfo.durationB);
 				writer.println("Location: " + UserInfo.locationB);
-				/*writer.println("Symptoms: " + UserInfo.symptoms.get(0) + ", ");
-				for(int i = 1; i < UserInfo.symptoms.size() - 1; i++){
+				writer.println("Symptoms: " + symptoms);
+				/*for(int i = 1; i < UserInfo.symptoms.size() - 1; i++){
 					String symp = UserInfo.symptoms.get(i);
 					writer.print(symp + ", ");
-				}
-				writer.print(UserInfo.symptoms.get(UserInfo.symptoms.size()-1));*/
+				}*/
+				writer.println("Symptoms: " + symptoms);
+				writer.print(UserInfo.symptoms.get(UserInfo.symptoms.size()-1));
 				writer.println("Level of pain: " + UserInfo.rateB);
 			}
 			else if(UserInfo.reason.equals("Accident")){
+				setSympt(UserInfo.symptLoc);
 				writer.println("Location: " + UserInfo.locationC);
 				writer.println("Level of pain: " + UserInfo.rateC);
 			}
@@ -178,12 +240,18 @@ public class FileWriter {
 				writer.println("Duration: " + UserInfo.durationD);
 			}
 			writer.println();
-			writer.println("Reccommended procedures and specialists: ");
+			writer.println("Reccommended procedures and specialists: None applicable");
 			writer.close();
 		}
 		catch(IOException e){
 			e.printStackTrace();
 		}
 	}
-	
+
+	public static void setSympt(ArrayList<String> al){
+		for(int i = 1; i < al.size() - 1; i++){
+			String symp = al.get(i);
+			symptoms += symp + ", ";
+		}
+	}
 }

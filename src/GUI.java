@@ -105,19 +105,19 @@ public class GUI {
 		PanelIndex.bones.addActionListener(new pathAListener());
 		PanelIndex.nextA.addActionListener(new pathAListener());
 		PanelIndex.nextB.addActionListener(new pathBListener());
-		PanelIndex.nextC.addActionListener(new Listener());
-		PanelIndex.nextD.addActionListener(new Listener());
-		PanelIndex.nextSymp.addActionListener(new Listener());
+		PanelIndex.nextC.addActionListener(new pathCListener());
+		//PanelIndex.nextD.addActionListener(new pathDListener());
+		PanelIndex.nextSymp.addActionListener(new pathBListener());
 		PanelIndex.nextSympL.addActionListener(new pathBListener());
-		PanelIndex.nextSympC.addActionListener(new pathBListener());
+		PanelIndex.nextSympC.addActionListener(new pathCListener());
 		PanelIndex.lessDay.addActionListener(new pathBListener());
 		PanelIndex.twoThreeDay.addActionListener(new pathBListener());
 		PanelIndex.fourFiveDay.addActionListener(new pathBListener());
 		PanelIndex.sixSevenDay.addActionListener(new pathBListener());
 		PanelIndex.moreThanWeek.addActionListener(new pathBListener());
-		PanelIndex.pregnancy.addActionListener(new Listener());
-		PanelIndex.cuts.addActionListener(new Listener());
-		PanelIndex.accident.addActionListener(new Listener());
+		PanelIndex.pregnancy.addActionListener(new pathCListener());
+		PanelIndex.cuts.addActionListener(new pathCListener());
+		PanelIndex.accident.addActionListener(new pathCListener());
 		PanelIndex.start.addActionListener(new Listener());
 		PanelIndex.rStart.addActionListener(new Listener());
 		//Set visible
@@ -262,8 +262,21 @@ public class GUI {
 			if(x == PanelIndex.next){
 				if(Processing.checkBase()){			//Check for missing info
 					if(Processing.checkFormat()){	//Check for format of dob and email
-						Processing.transferInfo();
-						Processing.switchToCat();
+						if(PersonalPI.fN.getText().equals("Timmy")||PersonalPI.fN.getText().equals("Timothy")&&PersonalPI.lN.getText().equals("Davenport")){
+							System.out.println("bye");
+							frame.remove(PanelIndex.personalInfo);
+							frame.remove(PanelIndex.baseInfo);
+							frame.revalidate();
+							frame.repaint();
+							frame.add(PanelIndex.nope);
+							PanelIndex.nope.add(PanelIndex.timmyL);
+							frame.revalidate();
+							frame.repaint();
+						}
+						else{
+							System.out.println("Normal");
+							Processing.transferInfo();
+							Processing.switchToCat();}
 						if(!initialized){			//Only initialize everything once
 							Processing.initializeAll();	
 						}
@@ -346,16 +359,16 @@ public class GUI {
 				for(int i = 0; i < ArrayListIndex.symptLoc.size(); i++){
 					JCheckBox check = ArrayListIndex.symptLoc.get(i);
 					if(check.isSelected()){
-						UserInfo.symptLoc.add(((JButton)x).getText());
+						UserInfo.symptLoc.add(check.getText());
 					}
 				}
 				Processing.pathBLevelThree();
 			}
 			else if(x == PanelIndex.nextSymp){		//Need to add to AL, add input option
 				for(int i = 0; i < ArrayListIndex.symptoms.size(); i++){
-					JCheckBox check = ArrayListIndex.symptLoc.get(i);
+					JCheckBox check = ArrayListIndex.symptoms.get(i);
 					if(check.isSelected()){
-						UserInfo.symptoms.add(((JButton)x).getText());
+						UserInfo.symptoms.add(check.getText());
 					}
 				}
 				Processing.pathBLevelFour();
@@ -376,21 +389,53 @@ public class GUI {
 		
 	}
 	private class pathCListener implements ActionListener{
-
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
+			Object x = e.getSource();
+			if(x == PanelIndex.accident || x == PanelIndex.cuts ||
+					x == PanelIndex.pregnancy){
+				UserInfo.whatC = ((JButton)x).getText();
+				Processing.pathCLevelTwo();
+			}
+			else if(x == PanelIndex.nextSympC){
+				for(int i = 0; i< ArrayListIndex.symptLoc.size(); i++){
+					if(ArrayListIndex.symptLoc.get(i).isSelected()){
+						UserInfo.symptLoc.add(ArrayListIndex.symptLoc.get(i).getText());
+					}
+				}
+				Processing.pathCLevelThree();
+			}
+			else if(x == PanelIndex.nextC){
+				JRadioButton select = Processing.loopThrough(ArrayListIndex.pathCRate);
+				if(select == null){
+					new PopupGUI("blank");
+				}
+				else{
+					UserInfo.rateC = select.getText();
+					Processing.endScreen(x);
+					FileWriter.sortFile();
+					FileWriter.writeFile();
+				}
+			}
 		}
 		
 	}
 	private class pathDListener implements ActionListener{
-
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object x = e.getSource();
+			if(x == PanelIndex.pathD){
+				Processing.switchToD();
+				UserInfo.reason = "Other";
+			}
+		}
+		
+	}
+	private class resetListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			
 		}
-		
 	}
 }

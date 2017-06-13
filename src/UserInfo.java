@@ -46,6 +46,7 @@ public class UserInfo {
 	public static String locationB = "";
 	public static String rateB = "";
 	//Path C
+	public static String whatC = "";
 	public static String locationC = "";
 	public static String rateC = "";
 	//Path D

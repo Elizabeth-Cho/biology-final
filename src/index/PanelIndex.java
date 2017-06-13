@@ -36,6 +36,7 @@ public class PanelIndex {
 	public static ImageIcon incidentI = createImageIcon("questions/incident.jpg");
 	public static ImageIcon side = createImageIcon("sidepanel.png");
 	public static ImageIcon baymax = createImageIcon("baymax.gif");
+	public static ImageIcon timmy = createImageIcon("questions/bye timmy.jpg");
 	//Label for images
 	public static JLabel timeL = new JLabel(time);
 	public static JLabel backL = new JLabel(backI);
@@ -49,6 +50,7 @@ public class PanelIndex {
 	public static JLabel incidentL = new JLabel(incidentI);
 	public static JLabel sideL = new JLabel(side);
 	public static JLabel baymaxL = new JLabel(baymax);
+	public static JLabel timmyL = new JLabel(timmy);
 	//Just images
 	public static JLabel blankA = new JLabel();
 	public static JLabel blankB = new JLabel();
@@ -115,6 +117,7 @@ public class PanelIndex {
 	public static JPanel endTwo = new JPanel();
 	public static JPanel endP = new JPanel();
 	public static JPanel lilBaymax = new JPanel();
+	public static JPanel nope = new JPanel();
 	//Wrapping panels
 	public static JPanel wrapperMed = new JPanel();
 	public static JPanel wrapperHist = new JPanel();
@@ -162,6 +165,7 @@ public class PanelIndex {
 	public static JButton accident = new JButton("Accident");
 	public static JButton pregnancy = new JButton("Pregnancy");
 	public static JButton cuts = new JButton("Cuts");
+	public static JButton overdose = new JButton("Overdose");
 	//Checkboxes, generic symptoms for all related questions
 	public static JCheckBox symptomA = new JCheckBox("Fever");
 	public static JCheckBox symptomB = new JCheckBox("Headache");
